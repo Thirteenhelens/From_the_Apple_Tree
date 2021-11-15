@@ -20,6 +20,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import AboutPage from "../AboutPage/AboutPage";
 import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from '../LandingPage/LandingPage';
+import ProductCard from "../ProductCardNoDesc/ProductCardNoDesc";
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
@@ -124,6 +125,7 @@ function App() {
             {/* <CompareProducts /> */}
             {/* <ChooseProduct /> */}
             {/* <AdminPage /> */}
+            <ProductCard />
 
         </Switch>
         <Footer />

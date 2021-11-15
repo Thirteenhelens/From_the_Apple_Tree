@@ -1,7 +1,8 @@
 import "./UserPage.css";
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProductCard from '../ProductCardNoDesc/ProductCardNoDesc';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
