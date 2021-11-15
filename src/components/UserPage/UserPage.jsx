@@ -1,18 +1,34 @@
-import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import "./UserPage.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ProductCard from '../ProductCardNoDesc/ProductCardNoDesc';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-  return (
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
+  const products = useSelector((store) => store.products);
 
-      <LogOutButton className="btn" />
-      {/* <ProductCard /> */}
-    </div>
+  console.log("products", products);
+  return (
+    <>
+      <div>
+        <h2 className="welcomeText">Welcome, {user.username}!</h2>
+      </div>
+      {products <= 0 ? (
+        <p>
+          It looks Like you don't have any favorite devices!
+          <Link to="/info">here</Link> to browse.
+        </p>
+      ) : (
+        <div>
+          {products?.map((product) => {
+            console.log(product);
+            return <p>{product.product_name}</p>;
+          })}
+        </div>
+      )}
+    </>
   );
 }
 
