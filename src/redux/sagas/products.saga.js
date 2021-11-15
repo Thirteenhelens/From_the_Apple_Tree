@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchProducts() {
@@ -15,3 +16,5 @@ function* fetchProducts() {
 function* productsSaga() {
     yield takeLatest('GET_PRODUCTS', fetchProducts);
 }
+
+export default productsSaga;
