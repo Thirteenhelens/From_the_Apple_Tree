@@ -11,31 +11,34 @@ import CardActions from "@mui/material/CardActions";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function ProductCardNoDesc() {
+function ProductCardNoDesc({product}) {
   const [favorite, setFavorite] = useState(false);
   const handleFavorite = () => {
-    console.log("Clicked fav");
+    console.log("Adding to favorites", product.id);
     setFavorite(!favorite);
   };
 
   const [compare, setCompare] = useState(false);
   const handleCompare = () => {
-    console.log("Clicked compare");
+    console.log("Adding to compare", product.id);
     setCompare(!compare);
   };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title="Product Name" subheader="$1000" />
+      <CardHeader
+        title={product.product_name}
+        subheader={product.product_price}
+      />
       <CardMedia
         component="img"
         height="250"
-        image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.idgesg.net%2Fimages%2Farticle%2F2018%2F11%2Fmacbook-air-2108-hero2-100779122-orig.jpeg&f=1&nofb=1"
-        alt="MacBook Air"
+        image={product.product_image}
+        alt={product.product_name}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Product Description
+          {product.product_description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

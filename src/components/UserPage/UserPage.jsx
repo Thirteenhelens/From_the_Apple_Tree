@@ -1,8 +1,10 @@
 import "./UserPage.css";
 import React from "react";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProductCard from "../ProductCardNoDesc/ProductCardNoDesc";
+import ProductCardNoDesc from "../ProductCardNoDesc/ProductCardNoDesc";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -15,11 +17,23 @@ function UserPage() {
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
       </div>
       {products ? (
-        <div>
-          {products?.map((product) => {
-            return <p>{product.product_name}</p>;
-          })}
-        </div>
+        <Box sx={{ flexGrow: 1, m: 2 }}>
+          <Grid
+            container
+            spacing={2}
+            direction="row"
+            alignItems="flex-start"
+            justifyContent="flex-start"
+          >
+            {products?.map((product) => {
+              return (
+                <Grid item xs={4} key={product.id}>
+                  <ProductCardNoDesc product={product} key={product.id} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
       ) : (
         <p className="emptyDevicesText">
           <br />
