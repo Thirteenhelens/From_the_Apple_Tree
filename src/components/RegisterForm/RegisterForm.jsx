@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// MUI IMPORTS
+import TextField from "@mui/material/TextField";
 
 function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -11,7 +14,7 @@ function RegisterForm() {
     event.preventDefault();
 
     dispatch({
-      type: 'REGISTER',
+      type: "REGISTER",
       payload: {
         username: username,
         password: password,
@@ -29,24 +32,23 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
+          <TextField
             required
+            value={username}
+            label="Username"
+            variant="standard"
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
       </div>
       <div>
         <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
+          <TextField
             required
+            type="password"
+            label="Password"
+            value={password}
+            variant="standard"
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
