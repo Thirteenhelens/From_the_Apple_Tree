@@ -13,12 +13,16 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
+
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import LoginPage from "../LoginPage/LoginPage";
+import AboutPage from "../AboutPage/AboutPage";
+import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
+import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 
 import './App.css';
 
@@ -114,6 +118,12 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+          
+
+            {/* <CompareProducts /> */}
+            {/* <ChooseProduct /> */}
+            {/* <AdminPage /> */}
+
         </Switch>
         <Footer />
       </div>
