@@ -107,12 +107,12 @@ function App() {
             )}
           </Route>
 
-          <ProtectedRoute
-
-            exact
-            path="/compare"
-          >
+          <ProtectedRoute exact path="/compare">
             <CompareProductsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/admin">
+            <AdminPage />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
@@ -122,7 +122,6 @@ function App() {
 
           <CompareProductsPage />
           {/* <ChooseProduct /> */}
-          {/* <AdminPage /> */}
           <ProductCard />
         </Switch>
         <Footer />
