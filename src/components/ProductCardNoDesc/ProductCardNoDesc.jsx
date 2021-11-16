@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Card from "@mui/material/Card";
+import { useDispatch } from "react-redux";
 import { pink } from "@mui/material/colors";
 import Checkbox from "@mui/material/Checkbox";
 import CardMedia from "@mui/material/CardMedia";
@@ -12,6 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function ProductCardNoDesc({ product }) {
+  const dispatch = useDispatch();
   // Add & Remove device to & from favorites
   const [favorite, setFavorite] = useState(false);
   const handleFavorite = () => {
@@ -22,12 +24,14 @@ function ProductCardNoDesc({ product }) {
 
   // Add & Remove device to & from compare
   const [checked, setChecked] = useState(false);
-  const removeFromCompare = () => {
+  const addToCompare = () => {
     console.log(`adding`);
+    dispatch({ type: "ADD_TO_COMPARE", payload: product });
     setChecked(!checked);
   };
-  const addToCompare = () => {
+  const removeFromCompare = () => {
     console.log(`removing`);
+    dispatch({ type: "REMOVE_FROM_COMPARE", payload: product });
     setChecked(!checked);
   };
   // End add & remove device to & from compare
@@ -61,13 +65,13 @@ function ProductCardNoDesc({ product }) {
         {checked ? (
           <>
             {" "}
-            <Checkbox checked={checked} onChange={addToCompare} />{" "}
+            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
             <p>Remove from compare</p>{" "}
           </>
         ) : (
           <>
             {" "}
-            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
+            <Checkbox checked={checked} onChange={addToCompare} />{" "}
             <p>Add to compare</p>{" "}
           </>
         )}
