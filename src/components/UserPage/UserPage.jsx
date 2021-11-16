@@ -1,13 +1,13 @@
 import "./UserPage.css";
 import React from "react";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductCardNoDesc from "../ProductCardNoDesc/ProductCardNoDesc";
+import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const products = useSelector((store) => store.products);
 
@@ -15,6 +15,7 @@ function UserPage() {
     <>
       <div>
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
+        <CompareDevicesButton />
       </div>
       {products ? (
         <Box sx={{ flexGrow: 1, m: 2 }}>

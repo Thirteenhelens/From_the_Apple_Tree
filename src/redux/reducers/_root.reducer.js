@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import products from './products.reducer'
+import products from './products.reducer';
+import compare from './compare.reducer';
 import errors from './errors.reducer';
 import user from './user.reducer';
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   products,
+  compare,
 });
 
 export default rootReducer;
