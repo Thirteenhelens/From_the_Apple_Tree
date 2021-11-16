@@ -32,6 +32,10 @@ function Nav() {
               Info Page
             </Link>
 
+            <Link className="navLink" to="/compare">
+              Compare Products
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
