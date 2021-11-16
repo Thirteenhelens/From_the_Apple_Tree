@@ -11,19 +11,8 @@ import CardActions from "@mui/material/CardActions";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function ProductCardNoDesc({product}) {
-  const [favorite, setFavorite] = useState(false);
-  const handleFavorite = () => {
-    console.log("Adding to favorites", product.id);
-    setFavorite(!favorite);
-  };
-
-  const [compare, setCompare] = useState(false);
-  const handleCompare = () => {
-    console.log("Adding to compare", product.id);
-    setCompare(!compare);
-  };
-
+function CompareProductCard({ product }) {
+    // Need to get itemsToCompare from store!!!
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -57,4 +46,4 @@ function ProductCardNoDesc({product}) {
   );
 }
 
-export default ProductCardNoDesc;
+export default CompareProductCard;
