@@ -1,10 +1,11 @@
 import "./UserPage.css";
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductCardNoDesc from "../ProductCardNoDesc/ProductCardNoDesc";
+import { Button } from "@mui/material";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -16,6 +17,12 @@ function UserPage() {
       <div>
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
       </div>
+
+      <Button variant="outlined">Compare Devices</Button>
+      <Button disabled variant="outlined">
+        Compare Devices
+      </Button>
+      <br />
       {products ? (
         <Box sx={{ flexGrow: 1, m: 2 }}>
           <Grid

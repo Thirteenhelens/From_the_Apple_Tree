@@ -11,18 +11,26 @@ import CardActions from "@mui/material/CardActions";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function ProductCardNoDesc({product}) {
+function ProductCardNoDesc({ product }) {
+  // Add & Remove device to & from favorites
   const [favorite, setFavorite] = useState(false);
   const handleFavorite = () => {
     console.log("Adding to favorites", product.id);
     setFavorite(!favorite);
   };
+  // End add & remove device to & from favorites
 
-  const [compare, setCompare] = useState(false);
-  const handleCompare = () => {
-    console.log("Adding to compare", product.id);
-    setCompare(!compare);
+  // Add & Remove device to & from compare
+  const [checked, setChecked] = useState(false);
+  const removeFromCompare = () => {
+    console.log(`adding`);
+    setChecked(!checked);
   };
+  const addToCompare = () => {
+    console.log(`removing`);
+    setChecked(!checked);
+  };
+  // End add & remove device to & from compare
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -46,12 +54,23 @@ function ProductCardNoDesc({product}) {
           {favorite ? (
             <FavoriteIcon sx={{ color: pink[500] }} />
           ) : (
-            <FavoriteBorderIcon />
+            <FavoriteBorderIcon sx={{ color: pink[500] }} />
           )}
         </IconButton>
 
-        <Checkbox onClick={handleCompare} />
-        {compare ? <p>Remove from compare</p> : <p>Add to compare</p>}
+        {checked ? (
+          <>
+            {" "}
+            <Checkbox checked={checked} onChange={addToCompare} />{" "}
+            <p>Remove from compare</p>{" "}
+          </>
+        ) : (
+          <>
+            {" "}
+            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
+            <p>Add to compare</p>{" "}
+          </>
+        )}
       </CardActions>
     </Card>
   );
