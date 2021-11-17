@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import productInfo from './productsInfo.reducer';
 import products from './products.reducer';
 import compare from './compare.reducer';
 import errors from './errors.reducer';
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   products,
   compare,
+  productInfo,
 });
 
 export default rootReducer;
