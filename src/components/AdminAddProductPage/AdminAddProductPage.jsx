@@ -1,7 +1,7 @@
-import { Button, FormControl } from "@mui/material";
+import { useState } from "react";
+import { Button } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
 
 function AdminAddProductPage() {
   const [newProduct, setNewProduct] = useState({
