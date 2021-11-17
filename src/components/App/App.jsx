@@ -25,6 +25,7 @@ import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 
 import "./App.css";
+import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -113,6 +114,7 @@ function App() {
 
           <ProtectedRoute exact path="/admin">
             <AdminPage />
+            <AdminAddProductPage />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
