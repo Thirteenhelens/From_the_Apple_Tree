@@ -6,6 +6,13 @@ const {
     rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
+// If statement for clearance level, use req.user
+
+// if (req.user.clearance_level < 2){
+//     res.send(403)
+//     return
+// }
+
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `
         SELECT * FROM "public.Products";

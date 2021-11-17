@@ -19,13 +19,13 @@ import LoginPage from "../LoginPage/LoginPage";
 import AboutPage from "../AboutPage/AboutPage";
 import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from "../LandingPage/LandingPage";
-import ProductCard from "../ProductCardNoDesc/ProductCardNoDesc";
 import RegisterPage from "../RegisterPage/RegisterPage";
+import ProductCard from "../ProductCardNoDesc/ProductCardNoDesc";
 import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
+import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
 
 import "./App.css";
-import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
 
 function App() {
   const dispatch = useDispatch();

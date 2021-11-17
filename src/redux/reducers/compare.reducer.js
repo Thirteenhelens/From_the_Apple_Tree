@@ -3,8 +3,9 @@ const productsToCompare = (state = [], action) => {
         case 'ADD_TO_COMPARE':
             return [...state, action.payload];
         case 'REMOVE_FROM_COMPARE':
-            return state.splice(1, 1, action.payload);
-            // Almost works, only the second item is ever removed though - needs fix!!!
+            // return state.splice(1, 1, action.payload);
+            return state.filter(selectedProduct => action.payload.id !== selectedProduct.id);
+
         default:
             return state;
     }
