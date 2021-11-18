@@ -24,13 +24,13 @@ function* deleteProduct(action) {
     }
 }
 
-function* addProduct() {
+function* addProduct(action) {
     try{
-        yield axios.post(`/api/products`);
+        yield axios.post('/api/products', action.payload);
         yield put({ type: "GET_PRODUCTS" });
         yield put({ type: "GET_PRODUCTS_INFO" });
     } catch(err){
-        console.log('Error on delete: ', err);
+        console.log('Error on post:', err);
         yield put({ type: 'FETCH_ERROR' });
     }
 }
