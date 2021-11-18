@@ -114,6 +114,9 @@ function App() {
 
           <ProtectedRoute exact path="/admin">
             <AdminPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/addProduct">
             <AdminAddProductPage />
           </ProtectedRoute>
 

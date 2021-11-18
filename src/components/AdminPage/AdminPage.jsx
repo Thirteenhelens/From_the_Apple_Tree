@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
+import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
@@ -11,21 +12,14 @@ import IconButton from "@mui/material/IconButton";
 import TableContainer from "@mui/material/TableContainer";
 import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
 
+
 function AdminPage() {
-  const products = useSelector((store) => store.products);
+  const history= useHistory();
   const productInfo = useSelector((store) => store.productInfo);
-
-  const handleEditProduct = () => {
-    console.log(`Editing ->`, product);
-  };
-
-  const handleAddProduct = () => {
-    console.log(`Adding a new Product!`);
-  }
 
   return (
     <div className="container">
-      <Button variant="outlined" onClick={handleAddProduct}>
+      <Button variant="outlined" onClick={() => history.push('/addProduct')}>
         Add New Device
       </Button>
       <TableContainer component={Paper}>
@@ -61,9 +55,7 @@ function AdminPage() {
                 <TableCell align="right">{product.name}</TableCell>
                 <TableCell align="right">{product.price}</TableCell>
                 {/* <TableCell align="right">{product.image}</TableCell> */}
-                <TableCell align="right">
-                  {product.description}
-                </TableCell>
+                <TableCell align="right">{product.description}</TableCell>
                 <TableCell align="right">
                   {product.display ? "Yes, " : "No"} {product.display_info}
                 </TableCell>
@@ -96,13 +88,15 @@ function AdminPage() {
                   {product.HDMI_port && "Yes "} {product.HDMI_port_info}
                 </TableCell>
                 <TableCell>
+
                   <IconButton
-                    onClick={() => console.log(`Editing ->`, product)}
+                    onClick={() => dispatch({type: 'PRODUCT_TO_EDIT', payload: product})}
                   >
                     <EditIcon />
                   </IconButton>
 
                   <AdminDeleteBttn product={product} />
+
                 </TableCell>
               </TableRow>
             ))}

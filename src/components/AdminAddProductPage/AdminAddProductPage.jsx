@@ -3,8 +3,6 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
-
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function AdminAddProductPage() {
@@ -35,7 +33,6 @@ function AdminAddProductPage() {
 
   return (
     <div>
-    <br />
       <form
         onSubmit={(e) => {
           e.preventDefault(),
