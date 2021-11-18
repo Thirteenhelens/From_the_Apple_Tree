@@ -9,15 +9,11 @@ import TableHead from "@mui/material/TableHead";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import TableContainer from "@mui/material/TableContainer";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
 
 function AdminPage() {
   const products = useSelector((store) => store.products);
   const productInfo = useSelector((store) => store.productInfo);
-
-  const handleDeleteProduct = () => {
-    console.log(`Deleting ->`, product);
-  };
 
   const handleEditProduct = () => {
     console.log(`Editing ->`, product);
@@ -98,16 +94,15 @@ function AdminPage() {
                   {product.HDMI_port && "Yes "} {product.HDMI_port_info}
                 </TableCell>
                 <TableCell>
+
                   <IconButton
                     onClick={() => console.log(`Editing ->`, product)}
                   >
                     <EditIcon />
                   </IconButton>
-                  <IconButton
-                    onClick={() => console.log(`Deleting ->`, product)}
-                  >
-                    <DeleteForeverIcon />
-                  </IconButton>
+
+                  <AdminDeleteBttn product={product} />
+                  
                 </TableCell>
               </TableRow>
             ))}
