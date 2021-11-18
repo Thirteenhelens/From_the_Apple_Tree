@@ -43,7 +43,45 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
             console.log(`/products delete error!`, err);
             res.sendStatus(500);
         })
+});
 
+router.post('/', rejectUnauthenticated, (req, res) => {
+    const product = req.id;
+
+    const queryText = `
+
+    RETURNING "id"
+    `;
+
+    pool.query(queryText, [
+        product.name,
+        product.price,
+        product.Description,
+        product.image_URL,
+        // product.magsafe,
+        // product.touchScreen,
+        // product.backlit,
+        // product.fingerPrint,
+        // product.storage_TXT,
+        // product.ram_txt,
+        // product.gpu_txt,
+        // product.camera,
+        // product.camera_txt,
+        // product.display,
+        // product.display_txt,
+        // product.usbc,
+        // product.usbc_txt,
+        // product.hdmi,
+        // product.hdmi_txt,
+        // product.cpu_txt,
+    ])
+        .then((result) => {
+            console.log(`Delete Successful!`);
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log(`/products delete error!`, err);
+            res.sendStatus(500);
+        })
 });
 
 module.exports = router;

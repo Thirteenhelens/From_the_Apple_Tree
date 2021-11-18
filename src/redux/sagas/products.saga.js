@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchProducts() {
     try {
-        const response = yield axios.get('/api/products');
+        const response = yield axios.get(`/api/products`);
 
         yield put({ type: 'SET_PRODUCTS', payload: response.data });
 
@@ -24,7 +24,19 @@ function* deleteProduct(action) {
     }
 }
 
+function* addProduct() {
+    try{
+        yield axios.post(`/api/products`);
+        yield put({ type: "GET_PRODUCTS" });
+        yield put({ type: "GET_PRODUCTS_INFO" });
+    } catch(err){
+        console.log('Error on delete: ', err);
+        yield put({ type: 'FETCH_ERROR' });
+    }
+}
+
 function* productsSaga() {
+    yield takeLatest('ADD_PRODUCT', addProduct);
     yield takeLatest('GET_PRODUCTS', fetchProducts);
     yield takeLatest('DELETE_PRODUCT', deleteProduct);
 }
