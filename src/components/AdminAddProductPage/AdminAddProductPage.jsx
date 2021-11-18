@@ -27,7 +27,7 @@ function AdminAddProductPage() {
     hdmi_txt: "",
     cpu_txt: "",
     Description: "",
-    IMG_URL: "",
+    image_URL: "",
   });
 
   return (
@@ -65,9 +65,9 @@ function AdminAddProductPage() {
 
         <h3>Image url</h3>
         <TextField
-          value={newProduct.IMG_URL}
+          value={newProduct.image_URL}
           onChange={(e) =>
-            setNewProduct({ ...newProduct, IMG_URL: e.target.value })
+            setNewProduct({ ...newProduct, image_URL: e.target.value })
           }
           id="standard-basic"
           label="URL"
