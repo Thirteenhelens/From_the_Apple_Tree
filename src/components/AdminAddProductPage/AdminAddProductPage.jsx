@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
+import { useDispatch } from "react-redux";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
-
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function AdminAddProductPage() {
+  const dispatch = useDispatch();
+
   const [newProduct, setNewProduct] = useState({
     name: "",
     price: "",
@@ -34,7 +35,8 @@ function AdminAddProductPage() {
     <div>
       <form
         onSubmit={(e) => {
-          e.preventDefault(), console.log(newProduct);
+          e.preventDefault(),
+            dispatch({ type: "ADD_PRODUCT", payload: newProduct });
         }}
       >
         <Button type="submit" variant="outlined">

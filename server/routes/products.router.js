@@ -45,12 +45,18 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         })
 });
 
+
+
 router.post('/', rejectUnauthenticated, (req, res) => {
-    const product = req.id;
+    const product = req.body;
+
+    console.log(req.body);
 
     const queryText = `
-
-    RETURNING "id"
+    INSERT INTO "Specs"(name, price, image_url, description, magsafe, touch_screen, backlit_keyboard,
+    fingerprint_sensor, storage_info, memory_info, graphics_card_info, camera, camera_info, display,
+    display_info, usbc_port, usbc_port_info, hdmi_port, hdmi_port_info, processor_info)
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);
     `;
 
     pool.query(queryText, [
@@ -58,28 +64,28 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         product.price,
         product.image_URL,
         product.Description,
-        // product.magsafe,
-        // product.touchScreen,
-        // product.backlit,
-        // product.fingerPrint,
-        // product.storage_TXT,
-        // product.ram_txt,
-        // product.gpu_txt,
-        // product.camera,
-        // product.camera_txt,
-        // product.display,
-        // product.display_txt,
-        // product.usbc,
-        // product.usbc_txt,
-        // product.hdmi,
-        // product.hdmi_txt,
-        // product.cpu_txt,
+        product.magsafe,
+        product.touchScreen,
+        product.backlit,
+        product.fingerPrint,
+        product.storage_TXT,
+        product.ram_txt,
+        product.gpu_txt,
+        product.camera,
+        product.camera_txt,
+        product.display,
+        product.display_txt,
+        product.usbc,
+        product.usbc_txt,
+        product.hdmi,
+        product.hdmi_txt,
+        product.cpu_txt,
     ])
         .then((result) => {
-            console.log(`Delete Successful!`);
+            console.log(`Post Successful!`);
             res.sendStatus(200);
         }).catch((err) => {
-            console.log(`/products delete error!`, err);
+            console.log(`products Post error!`, err);
             res.sendStatus(500);
         })
 });
