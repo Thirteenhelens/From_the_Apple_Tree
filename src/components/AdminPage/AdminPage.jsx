@@ -58,11 +58,11 @@ function AdminPage() {
                 key={product.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="right">{product.product_name}</TableCell>
-                <TableCell align="right">{product.product_price}</TableCell>
-                {/* <TableCell align="right">{product.product_image}</TableCell> */}
+                <TableCell align="right">{product.name}</TableCell>
+                <TableCell align="right">{product.price}</TableCell>
+                {/* <TableCell align="right">{product.image}</TableCell> */}
                 <TableCell align="right">
-                  {product.product_description}
+                  {product.description}
                 </TableCell>
                 <TableCell align="right">
                   {product.display ? "Yes, " : "No"} {product.display_info}
