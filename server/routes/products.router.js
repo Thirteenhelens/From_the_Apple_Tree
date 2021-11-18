@@ -27,4 +27,23 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    let productId = req.params.id;
+
+    const queryText = `
+    DELETE FROM "public.Products"
+    WHERE "id" = $1
+  `;
+
+    pool.query(queryText, [productId])
+        .then((result) => {
+            console.log(`Delete Successful!`);
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log(`/products delete error!`, err);
+            res.sendStatus(500);
+        })
+
+});
+
 module.exports = router;

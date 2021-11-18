@@ -3,17 +3,18 @@ import { Button } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import TextField from "@mui/material/TextField";
 
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
 function AdminAddProductPage() {
   const [newProduct, setNewProduct] = useState({
+    name: "",
     magsafe: false,
     touchScreen: false,
     backlit: false,
     fingerPrint: false,
-    storage: false,
     storage_TXT: "",
-    ram: false,
     ram_txt: "",
-    gpu: false,
     gpu_txt: "",
     camera: false,
     camera_txt: "",
@@ -23,7 +24,6 @@ function AdminAddProductPage() {
     usbc_txt: "",
     hdmi: false,
     hdmi_txt: "",
-    cpu: false,
     cpu_txt: "",
   });
 
@@ -41,6 +41,18 @@ function AdminAddProductPage() {
         <Button type="submit" variant="outlined">
           Save product
         </Button>
+
+        <h3>Name</h3>
+        <TextField
+          value={newProduct.name}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, name: e.target.value })
+          }
+          id="standard-basic"
+          label="Name"
+          variant="standard"
+        />
+
         <h3>CPU</h3>
         <TextField
           value={newProduct.cpu_txt}
@@ -50,14 +62,6 @@ function AdminAddProductPage() {
           id="standard-basic"
           label="CPU Info"
           variant="standard"
-        />
-        <Switch
-          checked={newProduct.cpu}
-          onChange={() =>
-            setNewProduct({ ...newProduct, cpu: !newProduct.cpu })
-          }
-          name="cpu"
-          color="primary"
         />
 
         <h3>HDMI</h3>
@@ -70,13 +74,18 @@ function AdminAddProductPage() {
           label="HDMI Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.hdmi}
-          onChange={() =>
-            setNewProduct({ ...newProduct, hdmi: !newProduct.hdmi })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.hdmi}
+              onChange={() =>
+                setNewProduct({ ...newProduct, hdmi: !newProduct.hdmi })
+              }
+              name="hdmi"
+              color="primary"
+            />
           }
-          name="hdmi"
-          color="primary"
+          label="Product has this"
         />
 
         <h3>USBC</h3>
@@ -89,13 +98,18 @@ function AdminAddProductPage() {
           label="USBC Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.usbc}
-          onChange={() =>
-            setNewProduct({ ...newProduct, usbc: !newProduct.usbc })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.usbc}
+              onChange={() =>
+                setNewProduct({ ...newProduct, usbc: !newProduct.usbc })
+              }
+              name="usbc"
+              color="primary"
+            />
           }
-          name="usbc"
-          color="primary"
+          label="Product has this"
         />
 
         <h3>Display</h3>
@@ -108,13 +122,18 @@ function AdminAddProductPage() {
           label="Display Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.display}
-          onChange={() =>
-            setNewProduct({ ...newProduct, display: !newProduct.display })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.display}
+              onChange={() =>
+                setNewProduct({ ...newProduct, display: !newProduct.display })
+              }
+              name="Display"
+              color="primary"
+            />
           }
-          name="Display"
-          color="primary"
+          label="Product has this"
         />
 
         <h3>Camera</h3>
@@ -127,13 +146,18 @@ function AdminAddProductPage() {
           label="Camera Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.camera}
-          onChange={() =>
-            setNewProduct({ ...newProduct, camera: !newProduct.camera })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.camera}
+              onChange={() =>
+                setNewProduct({ ...newProduct, camera: !newProduct.camera })
+              }
+              name="camera"
+              color="primary"
+            />
           }
-          name="camera"
-          color="primary"
+          label="Product has this"
         />
 
         <h3>GPU</h3>
@@ -146,14 +170,6 @@ function AdminAddProductPage() {
           label="GPU Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.gpu}
-          onChange={() =>
-            setNewProduct({ ...newProduct, gpu: !newProduct.gpu })
-          }
-          name="gpu"
-          color="primary"
-        />
 
         <h3>RAM</h3>
         <TextField
@@ -164,14 +180,6 @@ function AdminAddProductPage() {
           id="standard-basic"
           label="RAM Info"
           variant="standard"
-        />
-        <Switch
-          checked={newProduct.ram}
-          onChange={() =>
-            setNewProduct({ ...newProduct, ram: !newProduct.ram })
-          }
-          name="ram"
-          color="primary"
         />
 
         <h3>Storage</h3>
@@ -184,56 +192,71 @@ function AdminAddProductPage() {
           label="Storage Info"
           variant="standard"
         />
-        <Switch
-          checked={newProduct.storage}
-          onChange={() =>
-            setNewProduct({ ...newProduct, storage: !newProduct.storage })
-          }
-          name="storage"
-          color="primary"
-        />
 
         <h3>FingerPrint Sensor</h3>
-        <Switch
-          checked={newProduct.fingerPrint}
-          onChange={() =>
-            setNewProduct({
-              ...newProduct,
-              fingerPrint: !newProduct.fingerPrint,
-            })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.fingerPrint}
+              onChange={() =>
+                setNewProduct({
+                  ...newProduct,
+                  fingerPrint: !newProduct.fingerPrint,
+                })
+              }
+              name="fingerprint"
+              color="primary"
+            />
           }
-          name="fingerprint"
-          color="primary"
+          label="Product has this"
         />
+
         <h3>Backlit Keyboard</h3>
-        <Switch
-          checked={newProduct.backlit}
-          onChange={() =>
-            setNewProduct({ ...newProduct, backlit: !newProduct.backlit })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.backlit}
+              onChange={() =>
+                setNewProduct({ ...newProduct, backlit: !newProduct.backlit })
+              }
+              name="backlit"
+              color="primary"
+            />
           }
-          name="backlit"
-          color="primary"
+          label="Product has this"
         />
+
         <h3>Touch Screen</h3>
-        <Switch
-          checked={newProduct.touchScreen}
-          onChange={() =>
-            setNewProduct({
-              ...newProduct,
-              touchScreen: !newProduct.touchScreen,
-            })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.touchScreen}
+              onChange={() =>
+                setNewProduct({
+                  ...newProduct,
+                  touchScreen: !newProduct.touchScreen,
+                })
+              }
+              name="touch screen"
+              color="primary"
+            />
           }
-          name="touch screen"
-          color="primary"
+          label="Product has this"
         />
+
         <h3>Magsafe</h3>
-        <Switch
-          checked={newProduct.magsafe}
-          onChange={() =>
-            setNewProduct({ ...newProduct, magsafe: !newProduct.magsafe })
+        <FormControlLabel
+          control={
+            <Switch
+              checked={newProduct.magsafe}
+              onChange={() =>
+                setNewProduct({ ...newProduct, magsafe: !newProduct.magsafe })
+              }
+              name="magsafe"
+              color="primary"
+            />
           }
-          name="magsafe"
-          color="primary"
+          label="Product has this"
         />
       </form>
     </>

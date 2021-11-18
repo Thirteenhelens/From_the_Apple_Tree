@@ -13,8 +13,20 @@ function* fetchProducts() {
     }
 }
 
+function* deleteProduct(action) {
+    try {
+        yield axios.delete(`/api/products/${action.payload}`);
+        yield put({ type: "GET_PRODUCTS" });
+        yield put({ type: "GET_PRODUCTS_INFO" });
+    } catch (err) {
+        console.log('Error on delete: ', err);
+        yield put({ type: 'FETCH_ERROR' });
+    }
+}
+
 function* productsSaga() {
     yield takeLatest('GET_PRODUCTS', fetchProducts);
+    yield takeLatest('DELETE_PRODUCT', deleteProduct);
 }
 
 export default productsSaga;
