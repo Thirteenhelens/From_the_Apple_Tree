@@ -15,7 +15,7 @@ const {
 
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `
-        SELECT * FROM "public.Products";
+        SELECT * FROM "Specs";
         `;
 
     pool.query(queryText)
@@ -31,7 +31,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     let productId = req.params.id;
 
     const queryText = `
-    DELETE FROM "public.Products"
+    DELETE FROM "Specs"
     WHERE "id" = $1
   `;
 
@@ -56,8 +56,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, [
         product.name,
         product.price,
-        product.Description,
         product.image_URL,
+        product.Description,
         // product.magsafe,
         // product.touchScreen,
         // product.backlit,

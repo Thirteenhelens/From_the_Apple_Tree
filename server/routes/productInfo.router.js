@@ -7,9 +7,7 @@ const {
 
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `
-        SELECT * FROM "public.Specs"
-        JOIN "public.Products" ON "public.Specs".product_id = "public.Products".id;
-        ;
+        SELECT * FROM "Specs";
         `;
 
     pool.query(queryText)
