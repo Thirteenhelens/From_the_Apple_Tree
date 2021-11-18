@@ -9,6 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 function AdminAddProductPage() {
   const [newProduct, setNewProduct] = useState({
     name: "",
+    price: "",
     magsafe: false,
     touchScreen: false,
     backlit: false,
@@ -25,21 +26,19 @@ function AdminAddProductPage() {
     hdmi: false,
     hdmi_txt: "",
     cpu_txt: "",
+    Description: "",
+    IMG_URL: "",
   });
 
   return (
-    <>
-      <br />
-      <br />
-      <br />
-      <br />
+    <div>
       <form
         onSubmit={(e) => {
           e.preventDefault(), console.log(newProduct);
         }}
       >
         <Button type="submit" variant="outlined">
-          Save product
+          Save Device
         </Button>
 
         <h3>Name</h3>
@@ -50,6 +49,39 @@ function AdminAddProductPage() {
           }
           id="standard-basic"
           label="Name"
+          variant="standard"
+        />
+
+        <h3>Price</h3>
+        <TextField
+          value={newProduct.price}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, price: e.target.value })
+          }
+          id="standard-basic"
+          label="Price"
+          variant="standard"
+        />
+
+        <h3>Image url</h3>
+        <TextField
+          value={newProduct.IMG_URL}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, IMG_URL: e.target.value })
+          }
+          id="standard-basic"
+          label="URL"
+          variant="standard"
+        />
+
+        <h3>Description</h3>
+        <TextField
+          value={newProduct.Description}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, Description: e.target.value })
+          }
+          id="standard-basic"
+          label="Description"
           variant="standard"
         />
 
@@ -259,7 +291,7 @@ function AdminAddProductPage() {
           label="Product has this"
         />
       </form>
-    </>
+    </div>
   );
 }
 

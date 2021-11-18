@@ -32,7 +32,10 @@ function AdminPage() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">ID</TableCell>
+              <TableCell align="right">Name</TableCell>
+              <TableCell align="right">Price</TableCell>
+              {/* <TableCell align="right">Image</TableCell> */}
+              <TableCell align="right">Description</TableCell>
               <TableCell align="right">Display</TableCell>
               <TableCell align="right">Camera</TableCell>
               <TableCell align="right">GPU</TableCell>
@@ -50,18 +53,17 @@ function AdminPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {products.map((product) => (
-              <TableCell component="th" scope="row" key={product.id}>
-                {product.product_name}
-              </TableCell>
-            ))} */}
-            {/* Cannot get to render correctly ⬆⬆⬆ */}
             {productInfo.map((product) => (
               <TableRow
                 key={product.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="right">{product.id}</TableCell>
+                <TableCell align="right">{product.product_name}</TableCell>
+                <TableCell align="right">{product.product_price}</TableCell>
+                {/* <TableCell align="right">{product.product_image}</TableCell> */}
+                <TableCell align="right">
+                  {product.product_description}
+                </TableCell>
                 <TableCell align="right">
                   {product.display ? "Yes, " : "No"} {product.display_info}
                 </TableCell>
@@ -94,7 +96,6 @@ function AdminPage() {
                   {product.HDMI_port && "Yes "} {product.HDMI_port_info}
                 </TableCell>
                 <TableCell>
-
                   <IconButton
                     onClick={() => console.log(`Editing ->`, product)}
                   >
@@ -102,7 +103,6 @@ function AdminPage() {
                   </IconButton>
 
                   <AdminDeleteBttn product={product} />
-                  
                 </TableCell>
               </TableRow>
             ))}
