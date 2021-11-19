@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import Switch from "@mui/material/Switch";
+import { useHistory } from "react-router";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function AdminAddProductPage() {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const [newProduct, setNewProduct] = useState({
@@ -33,6 +35,15 @@ function AdminAddProductPage() {
 
   return (
     <div>
+      <p>Add a new product here!</p>
+      <Button
+        type="submit"
+        color="error"
+        variant="contained"
+        onClick={() => history.push("/admin")}
+      >
+        Cancel
+      </Button>
       <form
         onSubmit={(e) => {
           e.preventDefault(),
@@ -71,6 +82,8 @@ function AdminAddProductPage() {
           onChange={(e) =>
             setNewProduct({ ...newProduct, image_URL: e.target.value })
           }
+          multiline
+          maxRows={3}
           id="standard-basic"
           label="URL"
           variant="standard"
@@ -82,6 +95,8 @@ function AdminAddProductPage() {
           onChange={(e) =>
             setNewProduct({ ...newProduct, Description: e.target.value })
           }
+          multiline
+          maxRows={3}
           id="standard-basic"
           label="Description"
           variant="standard"

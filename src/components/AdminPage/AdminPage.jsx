@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,14 +12,14 @@ import IconButton from "@mui/material/IconButton";
 import TableContainer from "@mui/material/TableContainer";
 import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
 
-
 function AdminPage() {
-  const history= useHistory();
+  const history = useHistory();
+  const dispatch = useDispatch();
   const productInfo = useSelector((store) => store.productInfo);
 
   return (
     <div className="container">
-      <Button variant="outlined" onClick={() => history.push('/addProduct')}>
+      <Button variant="outlined" onClick={() => history.push("/addProduct")}>
         Add New Device
       </Button>
       <TableContainer component={Paper}>
@@ -88,15 +88,16 @@ function AdminPage() {
                   {product.HDMI_port && "Yes "} {product.HDMI_port_info}
                 </TableCell>
                 <TableCell>
-
                   <IconButton
-                    onClick={() => dispatch({type: 'PRODUCT_TO_EDIT', payload: product})}
+                    onClick={() => (
+                      history.push("/editProduct"),
+                      dispatch({ type: "PRODUCT_TO_EDIT", payload: product })
+                    )}
                   >
                     <EditIcon />
                   </IconButton>
 
                   <AdminDeleteBttn product={product} />
-
                 </TableCell>
               </TableRow>
             ))}
