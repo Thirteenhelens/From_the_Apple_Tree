@@ -35,6 +35,7 @@ function AdminAddProductPage() {
 
   return (
     <div>
+      <p>Add a new product here!</p>
       <Button
         type="submit"
         color="error"
@@ -81,6 +82,8 @@ function AdminAddProductPage() {
           onChange={(e) =>
             setNewProduct({ ...newProduct, image_URL: e.target.value })
           }
+          multiline
+          maxRows={3}
           id="standard-basic"
           label="URL"
           variant="standard"
@@ -92,6 +95,8 @@ function AdminAddProductPage() {
           onChange={(e) =>
             setNewProduct({ ...newProduct, Description: e.target.value })
           }
+          multiline
+          maxRows={3}
           id="standard-basic"
           label="Description"
           variant="standard"

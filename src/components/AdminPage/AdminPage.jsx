@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,6 +14,7 @@ import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
 
 function AdminPage() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const productInfo = useSelector((store) => store.productInfo);
 
   return (

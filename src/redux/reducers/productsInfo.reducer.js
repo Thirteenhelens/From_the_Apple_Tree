@@ -1,10 +1,10 @@
-const productToEdit = (state = [], action) => {
+const productsInfoReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_PRODUCT_TO_EDIT':
+        case 'SET_PRODUCT_INFO':
             return action.payload;
         default:
             return state;
     }
 }
 
-export default productToEdit;
+export default productsInfoReducer;

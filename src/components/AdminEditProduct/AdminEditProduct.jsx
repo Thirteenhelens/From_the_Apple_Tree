@@ -3,38 +3,18 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import Switch from "@mui/material/Switch";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function AdminEditProduct() {
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const [newProduct, setNewProduct] = useState({
-    name: "",
-    price: "",
-    magsafe: false,
-    touchScreen: false,
-    backlit: false,
-    fingerPrint: false,
-    storage_TXT: "",
-    ram_txt: "",
-    gpu_txt: "",
-    camera: false,
-    camera_txt: "",
-    display: false,
-    display_txt: "",
-    usbc: false,
-    usbc_txt: "",
-    hdmi: false,
-    hdmi_txt: "",
-    cpu_txt: "",
-    Description: "",
-    image_URL: "",
-  });
+  const productToEdit = useSelector((store) => store.productToEdit);
 
   return (
     <div>
+      <h3>Edit product here!</h3>
       <Button
         type="submit"
         color="error"
@@ -45,20 +25,22 @@ function AdminEditProduct() {
       </Button>
       <form
         onSubmit={(e) => {
-          e.preventDefault(),
-            dispatch({ type: "ADD_PRODUCT", payload: newProduct });
+          e.preventDefault(), console.log(`You need to change this`);
+          // dispatch({ type: "ADD_PRODUCT", payload: newProduct });
         }}
       >
         <Button type="submit" variant="outlined">
-          Save Device
+          Save Changes
         </Button>
 
         <h3>Name</h3>
         <TextField
-          value={newProduct.name}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, name: e.target.value })
-          }
+          value={productToEdit.name}
+        //   onChange={(dispatch({
+        //     type: "EDIT_THIS_PRODUCT",
+        //     payload: productToEdit.name,
+        //   }))}
+        // DISPATCH THE CHANGES HERE
           id="standard-basic"
           label="Name"
           variant="standard"
@@ -66,9 +48,10 @@ function AdminEditProduct() {
 
         <h3>Price</h3>
         <TextField
-          value={newProduct.price}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, price: e.target.value })
+          value={productToEdit.price}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, price: e.target.value })
           }
           id="standard-basic"
           label="Price"
@@ -77,9 +60,10 @@ function AdminEditProduct() {
 
         <h3>Image url</h3>
         <TextField
-          value={newProduct.image_URL}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, image_URL: e.target.value })
+          value={productToEdit.image_url}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, image_URL: e.target.value })
           }
           id="standard-basic"
           label="URL"
@@ -88,9 +72,10 @@ function AdminEditProduct() {
 
         <h3>Description</h3>
         <TextField
-          value={newProduct.Description}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, Description: e.target.value })
+          value={productToEdit.description}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, Description: e.target.value })
           }
           id="standard-basic"
           label="Description"
@@ -99,9 +84,10 @@ function AdminEditProduct() {
 
         <h3>CPU</h3>
         <TextField
-          value={newProduct.cpu_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, cpu_txt: e.target.value })
+          value={productToEdit.processor_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, cpu_txt: e.target.value })
           }
           id="standard-basic"
           label="CPU Info"
@@ -110,9 +96,10 @@ function AdminEditProduct() {
 
         <h3>HDMI</h3>
         <TextField
-          value={newProduct.hdmi_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, hdmi_txt: e.target.value })
+          value={productToEdit.hdmi_port_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, hdmi_txt: e.target.value })
           }
           id="standard-basic"
           label="HDMI Info"
@@ -121,9 +108,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.hdmi}
-              onChange={() =>
-                setNewProduct({ ...newProduct, hdmi: !newProduct.hdmi })
+              checked={productToEdit.hdmi_port}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, hdmi: !newProduct.hdmi })
               }
               name="hdmi"
               color="primary"
@@ -134,9 +122,10 @@ function AdminEditProduct() {
 
         <h3>USBC</h3>
         <TextField
-          value={newProduct.usbc_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, usbc_txt: e.target.value })
+          value={productToEdit.usbc_port_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, usbc_txt: e.target.value })
           }
           id="standard-basic"
           label="USBC Info"
@@ -145,9 +134,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.usbc}
-              onChange={() =>
-                setNewProduct({ ...newProduct, usbc: !newProduct.usbc })
+              checked={productToEdit.usbc_port}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, usbc: !newProduct.usbc })
               }
               name="usbc"
               color="primary"
@@ -158,9 +148,10 @@ function AdminEditProduct() {
 
         <h3>Display</h3>
         <TextField
-          value={newProduct.display_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, display_txt: e.target.value })
+          value={productToEdit.display_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, display_txt: e.target.value })
           }
           id="standard-basic"
           label="Display Info"
@@ -169,9 +160,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.display}
-              onChange={() =>
-                setNewProduct({ ...newProduct, display: !newProduct.display })
+              checked={productToEdit.display}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, display: !newProduct.display })
               }
               name="Display"
               color="primary"
@@ -182,9 +174,10 @@ function AdminEditProduct() {
 
         <h3>Camera</h3>
         <TextField
-          value={newProduct.camera_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, camera_txt: e.target.value })
+          value={productToEdit.camera_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, camera_txt: e.target.value })
           }
           id="standard-basic"
           label="Camera Info"
@@ -193,9 +186,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.camera}
-              onChange={() =>
-                setNewProduct({ ...newProduct, camera: !newProduct.camera })
+              checked={productToEdit.camera}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, camera: !newProduct.camera })
               }
               name="camera"
               color="primary"
@@ -206,9 +200,10 @@ function AdminEditProduct() {
 
         <h3>GPU</h3>
         <TextField
-          value={newProduct.gpu_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, gpu_txt: e.target.value })
+          value={productToEdit.graphics_card_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, gpu_txt: e.target.value })
           }
           id="standard-basic"
           label="GPU Info"
@@ -217,9 +212,10 @@ function AdminEditProduct() {
 
         <h3>RAM</h3>
         <TextField
-          value={newProduct.ram_txt}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, ram_txt: e.target.value })
+          value={productToEdit.memory_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, ram_txt: e.target.value })
           }
           id="standard-basic"
           label="RAM Info"
@@ -228,9 +224,10 @@ function AdminEditProduct() {
 
         <h3>Storage</h3>
         <TextField
-          value={newProduct.storage_TXT}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, storage_TXT: e.target.value })
+          value={productToEdit.storage_info}
+          onChange={
+            (e) => console.log(e.target.value)
+            // setNewProduct({ ...newProduct, storage_TXT: e.target.value })
           }
           id="standard-basic"
           label="Storage Info"
@@ -241,12 +238,13 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.fingerPrint}
-              onChange={() =>
-                setNewProduct({
-                  ...newProduct,
-                  fingerPrint: !newProduct.fingerPrint,
-                })
+              checked={productToEdit.fingerprint_sensor}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({
+                //   ...newProduct,
+                //   fingerPrint: !newProduct.fingerPrint,
+                // })
               }
               name="fingerprint"
               color="primary"
@@ -259,9 +257,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.backlit}
-              onChange={() =>
-                setNewProduct({ ...newProduct, backlit: !newProduct.backlit })
+              checked={productToEdit.backlit_keyboard}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, backlit: !newProduct.backlit })
               }
               name="backlit"
               color="primary"
@@ -274,12 +273,13 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.touchScreen}
-              onChange={() =>
-                setNewProduct({
-                  ...newProduct,
-                  touchScreen: !newProduct.touchScreen,
-                })
+              checked={productToEdit.touch_screen}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({
+                //   ...newProduct,
+                //   touchScreen: !newProduct.touchScreen,
+                // })
               }
               name="touch screen"
               color="primary"
@@ -292,9 +292,10 @@ function AdminEditProduct() {
         <FormControlLabel
           control={
             <Switch
-              checked={newProduct.magsafe}
-              onChange={() =>
-                setNewProduct({ ...newProduct, magsafe: !newProduct.magsafe })
+              checked={productToEdit.magsafe}
+              onChange={
+                () => console.log(e.target.value)
+                // setNewProduct({ ...newProduct, magsafe: !newProduct.magsafe })
               }
               name="magsafe"
               color="primary"
