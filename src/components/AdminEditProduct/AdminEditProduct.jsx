@@ -36,10 +36,10 @@ function AdminEditProduct() {
         <h3>Name</h3>
         <TextField
           value={productToEdit.name}
-        //   onChange={(dispatch({
-        //     type: "EDIT_THIS_PRODUCT",
-        //     payload: productToEdit.name,
-        //   }))}
+          onChange={() => dispatch({
+            type: "EDIT_THIS_PRODUCT",
+            payload: productToEdit.name,
+          })}
         // DISPATCH THE CHANGES HERE
           id="standard-basic"
           label="Name"
