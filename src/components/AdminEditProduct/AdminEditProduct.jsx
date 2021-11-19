@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-function AdminAddProductPage() {
+function AdminEditProduct() {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -307,4 +307,4 @@ function AdminAddProductPage() {
   );
 }
 
-export default AdminAddProductPage;
+export default AdminEditProduct;

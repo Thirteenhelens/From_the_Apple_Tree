@@ -36,7 +36,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   `;
 
     pool.query(queryText, [productId])
-        .then((result) => {
+        .then((response) => {
             console.log(`Delete Successful!`);
             res.sendStatus(200);
         }).catch((err) => {
@@ -81,7 +81,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         product.hdmi_txt,
         product.cpu_txt,
     ])
-        .then((result) => {
+        .then((response) => {
             console.log(`Post Successful!`);
             res.sendStatus(200);
         }).catch((err) => {
@@ -89,5 +89,19 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         })
 });
+
+// router.put('/', rejectUnauthenticated, (req, res) => {
+//     const queryText = `
+        
+//         `;
+
+//     pool.query(queryText)
+//         .then((response) => {
+//             res.sendStatus(200);
+//         }).catch((err) => {
+//             console.log(`Error editing product ->`, err);
+//             res.sendStatus(500);
+//         })
+// });
 
 module.exports = router;

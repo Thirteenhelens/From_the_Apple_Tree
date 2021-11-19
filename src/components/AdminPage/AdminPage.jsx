@@ -12,14 +12,13 @@ import IconButton from "@mui/material/IconButton";
 import TableContainer from "@mui/material/TableContainer";
 import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
 
-
 function AdminPage() {
-  const history= useHistory();
+  const history = useHistory();
   const productInfo = useSelector((store) => store.productInfo);
 
   return (
     <div className="container">
-      <Button variant="outlined" onClick={() => history.push('/addProduct')}>
+      <Button variant="outlined" onClick={() => history.push("/addProduct")}>
         Add New Device
       </Button>
       <TableContainer component={Paper}>
@@ -88,15 +87,16 @@ function AdminPage() {
                   {product.HDMI_port && "Yes "} {product.HDMI_port_info}
                 </TableCell>
                 <TableCell>
-
                   <IconButton
-                    onClick={() => dispatch({type: 'PRODUCT_TO_EDIT', payload: product})}
+                    onClick={() => (
+                      history.push("/editProduct"),
+                      dispatch({ type: "PRODUCT_TO_EDIT", payload: product })
+                    )}
                   >
                     <EditIcon />
                   </IconButton>
 
                   <AdminDeleteBttn product={product} />
-
                 </TableCell>
               </TableRow>
             ))}

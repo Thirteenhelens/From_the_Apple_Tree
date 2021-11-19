@@ -26,6 +26,7 @@ import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
 
 import "./App.css";
+import AdminEditProduct from "../AdminEditProduct/AdminEditProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -118,6 +119,10 @@ function App() {
 
           <ProtectedRoute exact path="/addProduct">
             <AdminAddProductPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/editProduct">
+            <AdminEditProduct />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
