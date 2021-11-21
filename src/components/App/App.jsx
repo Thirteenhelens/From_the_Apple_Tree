@@ -113,10 +113,6 @@ function App() {
             <CompareProductsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/admin">
-            <AdminPage />
-          </ProtectedRoute>
-
           <ProtectedRoute exact path="/addProduct">
             <AdminAddProductPage />
           </ProtectedRoute>
@@ -127,6 +123,12 @@ function App() {
 
           <ProtectedRoute exact path="/choose">
             <ChooseProductPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/admin">
+            {/* If the user has high enough clerance, they are brought to the admin page. 
+            Otherwise, user is brought to the home page */}
+            {user.clearance_level > 1 ? <AdminPage /> : <UserPage />}
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
