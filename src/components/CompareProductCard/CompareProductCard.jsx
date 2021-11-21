@@ -25,21 +25,20 @@ function CompareProductCard({ product }) {
 
   // Remove device from compare
   const removeFromCompare = () => {
-    console.log(`removing`);
     dispatch({ type: "REMOVE_FROM_COMPARE", payload: product });
   };
   // End add & remove device to & from compare
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        title={product.product_name}
-        subheader={product.product_price}
+        title={product.name}
+        subheader={product.price}
       />
       <CardMedia
         component="img"
         height="250"
-        image={product.product_image}
-        alt={product.product_name}
+        image={product.image_url}
+        alt={product.name}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
