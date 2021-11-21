@@ -37,9 +37,14 @@ function AdminAddProductPage() {
 
   return (
     <div className="inputs">
+      <h1>Add a new product</h1>
       <form>
         <Grid container spacing={2}>
-          <Grid item xs={8}>
+          <Grid item xs={4}>
+            <p> </p>
+          </Grid>
+
+          <Grid item xs={4}>
             <h3>Name</h3>
             <TextField
               value={newProduct.name}
@@ -58,9 +63,9 @@ function AdminAddProductPage() {
               variant="outlined"
               onClick={(e) => {
                 e.preventDefault(),
-                history.push("/admin"),
-                dispatch({ type: "ADD_PRODUCT", payload: newProduct }),
-                console.log('WTF')
+                  history.push("/admin"),
+                  dispatch({ type: "ADD_PRODUCT", payload: newProduct }),
+                  console.log("WTF");
               }}
             >
               Save Device
@@ -232,7 +237,10 @@ function AdminAddProductPage() {
                 <Switch
                   checked={newProduct.camera}
                   onChange={() =>
-                    setNewProduct({ ...newProduct, camera: !newProduct.camera })
+                    setNewProduct({
+                      ...newProduct,
+                      camera: !newProduct.camera,
+                    })
                   }
                   name="camera"
                   color="primary"

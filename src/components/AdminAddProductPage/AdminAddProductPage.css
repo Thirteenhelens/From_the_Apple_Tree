@@ -1,3 +1,9 @@
 .inputs{
+    align-content: center;
     margin: 10px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 55px;
 }
