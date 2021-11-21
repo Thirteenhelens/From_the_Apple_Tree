@@ -125,14 +125,14 @@ function App() {
             <AdminEditProduct />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/choose">
+            <ChooseProductPage />
+          </ProtectedRoute>
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
-
-          <CompareProductsPage />
-          {/* <ChooseProduct /> */}
-          <ProductCard />
         </Switch>
         <Footer />
       </div>
