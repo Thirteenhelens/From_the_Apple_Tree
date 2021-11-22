@@ -4,7 +4,6 @@ import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { useDispatch } from "react-redux";
-import { pink } from "@mui/material/colors";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
 import Collapse from "@mui/material/Collapse";
@@ -20,24 +19,15 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import TableContainer from "@mui/material/TableContainer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
+import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function ProductCardWithDesc({ product }) {
-
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
-  const [favorite, setFavorite] = useState(false);
   const [expanded, setExpanded] = React.useState(false);
-
-  const handleFavorite = () => {
-    console.log("Adding to favorites", product.id);
-    setFavorite(!favorite);
-  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -65,7 +55,6 @@ function ProductCardWithDesc({ product }) {
     }),
   }));
 
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={product.name} subheader={product.price} />
@@ -81,14 +70,7 @@ function ProductCardWithDesc({ product }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={handleFavorite}>
-          {favorite ? (
-            <FavoriteIcon sx={{ color: pink[500] }} />
-          ) : (
-            <FavoriteBorderIcon sx={{ color: pink[500] }} />
-          )}
-        </IconButton>
-
+        <FavoriteProductButton product={product} />
         {checked ? (
           <>
             {" "}
