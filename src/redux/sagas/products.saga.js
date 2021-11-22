@@ -34,21 +34,10 @@ function* addProduct(action) {
     }
 }
 
-// function* productToEdit() {
-//     try {
-//         yield axios.put('/api/products', action.payload)
-//         yield put({ type: "GET_PRODUCTS" });
-//     } catch (err) {
-//         console.log('Error in edit:', err);
-//         yield put({ type: 'FETCH_ERROR' });
-//     }
-// }
-
 function* productsSaga() {
     yield takeLatest('ADD_PRODUCT', addProduct);
     yield takeLatest('GET_PRODUCTS', fetchProducts);
     yield takeLatest('DELETE_PRODUCT', deleteProduct);
-    // yield takeLatest('PRODUCT_TO_EDIT', productToEdit);
 }
 
 export default productsSaga;

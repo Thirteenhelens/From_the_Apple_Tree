@@ -4,7 +4,6 @@ import Card from "@mui/material/Card";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { useDispatch } from "react-redux";
-import { pink } from "@mui/material/colors";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
 import Collapse from "@mui/material/Collapse";
@@ -20,24 +19,17 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import TableContainer from "@mui/material/TableContainer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
+import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
+import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function ProductCardWithDesc({ product }) {
-
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(false);
-  const [favorite, setFavorite] = useState(false);
   const [expanded, setExpanded] = React.useState(false);
-
-  const handleFavorite = () => {
-    console.log("Adding to favorites", product.id);
-    setFavorite(!favorite);
-  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -65,7 +57,6 @@ function ProductCardWithDesc({ product }) {
     }),
   }));
 
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={product.name} subheader={product.price} />
@@ -81,25 +72,16 @@ function ProductCardWithDesc({ product }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={handleFavorite}>
-          {favorite ? (
-            <FavoriteIcon sx={{ color: pink[500] }} />
-          ) : (
-            <FavoriteBorderIcon sx={{ color: pink[500] }} />
-          )}
-        </IconButton>
-
+        <FavoriteProductButton product={product} />
         {checked ? (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
-            <p>Remove from compare</p>{" "}
+            <Checkbox checked={checked} onChange={removeFromCompare} />
+            <p>Remove from compare</p>
           </>
         ) : (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={addToCompare} />{" "}
-            <p>Add to compare</p>{" "}
+            <Checkbox checked={checked} onChange={addToCompare} />
+            <p>Add to compare</p>
           </>
         )}
         <ExpandMore
@@ -121,16 +103,25 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left"> HDMI port:</TableCell>
                   <TableCell align="right">
-                    {product.hdmi_port ? "Yes, " : "No"}
-                    {product.hdmi_port_info}
-                    {/* How to conditionally render info only if true */}
+                    {product.hdmi_port ? (
+                      <>
+                      <CheckTwoToneIcon color="success" />
+                       {product.hdmi_port_info}
+                       </>
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left"> Backlit Keyboard:</TableCell>
                   <TableCell align="right">
-                    {product.backlit_keyboard ? "Yes " : "No"}
+                    {product.backlit_keyboard ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
@@ -142,7 +133,11 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left">Webcam:</TableCell>
                   <TableCell align="right">
-                    {product.backlit_keyboard ? "Yes, " : "No"}
+                    {product.backlit_keyboard ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                     {product.camera_info}
                   </TableCell>
                 </TableRow>
@@ -150,21 +145,33 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left">Touch Screen:</TableCell>
                   <TableCell align="right">
-                    {product.touch_screen ? "Yes" : "No"}
+                    {product.touch_screen ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left">Fingerprint Sensor:</TableCell>
                   <TableCell align="right">
-                    {product.fingerprint_sensor ? "Yes" : "No"}
+                    {product.fingerprint_sensor ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left">Magsafe:</TableCell>
                   <TableCell align="right">
-                    {product.magsafe ? "Yes" : "No"}
+                    {product.magsafe ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
               </TableBody>

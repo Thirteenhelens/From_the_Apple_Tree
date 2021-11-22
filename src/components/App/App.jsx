@@ -109,7 +109,8 @@ function App() {
             )}
           </Route>
 
-          <ProtectedRoute exact path="/compare">
+          <ProtectedRoute exact path="/compare" >
+          {/* onLeave={() => dispatch({type;Poopoo})}> */}
             <CompareProductsPage />
           </ProtectedRoute>
 
