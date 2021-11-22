@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* addFavorite() {
     try {
-        const response = yield axios.post(`/api/`)
+        const response = yield axios.post(`/api/favorite`)
     } catch (err) {
         console.log('Error Adding to Favorites:', err);
         yield put({ type: 'FETCH_ERROR' })
@@ -12,7 +12,7 @@ function* addFavorite() {
 
 function* removeFavorite() {
     try {
-        const response = yield axios.delete(`/api/`)
+        const response = yield axios.delete(`/api/favorite`)
     } catch (err) {
         console.log('Error removing from Favorites:', err);
         yield put({ type: 'FETCH_ERROR' })

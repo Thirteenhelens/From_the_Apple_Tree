@@ -9,4 +9,5 @@ const {
 router.post('/', rejectUnauthenticated, (req, res) => {
     const product = req.body;
 
-    console.log(req.body)}
+    console.log(req.body)
+}
