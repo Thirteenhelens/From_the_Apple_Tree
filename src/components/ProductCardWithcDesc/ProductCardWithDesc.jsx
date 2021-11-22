@@ -21,6 +21,8 @@ import CardActions from "@mui/material/CardActions";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import TableContainer from "@mui/material/TableContainer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
+import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function ProductCardWithDesc({ product }) {
@@ -73,15 +75,13 @@ function ProductCardWithDesc({ product }) {
         <FavoriteProductButton product={product} />
         {checked ? (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
-            <p>Remove from compare</p>{" "}
+            <Checkbox checked={checked} onChange={removeFromCompare} />
+            <p>Remove from compare</p>
           </>
         ) : (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={addToCompare} />{" "}
-            <p>Add to compare</p>{" "}
+            <Checkbox checked={checked} onChange={addToCompare} />
+            <p>Add to compare</p>
           </>
         )}
         <ExpandMore
@@ -103,16 +103,25 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left"> HDMI port:</TableCell>
                   <TableCell align="right">
-                    {product.hdmi_port ? "Yes, " : "No"}
-                    {product.hdmi_port_info}
-                    {/* How to conditionally render info only if true */}
+                    {product.hdmi_port ? (
+                      <>
+                      <CheckTwoToneIcon color="success" />
+                       {product.hdmi_port_info}
+                       </>
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left"> Backlit Keyboard:</TableCell>
                   <TableCell align="right">
-                    {product.backlit_keyboard ? "Yes " : "No"}
+                    {product.backlit_keyboard ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
@@ -124,7 +133,11 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left">Webcam:</TableCell>
                   <TableCell align="right">
-                    {product.backlit_keyboard ? "Yes, " : "No"}
+                    {product.backlit_keyboard ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                     {product.camera_info}
                   </TableCell>
                 </TableRow>
@@ -132,21 +145,33 @@ function ProductCardWithDesc({ product }) {
                 <TableRow>
                   <TableCell align="left">Touch Screen:</TableCell>
                   <TableCell align="right">
-                    {product.touch_screen ? "Yes" : "No"}
+                    {product.touch_screen ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left">Fingerprint Sensor:</TableCell>
                   <TableCell align="right">
-                    {product.fingerprint_sensor ? "Yes" : "No"}
+                    {product.fingerprint_sensor ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell align="left">Magsafe:</TableCell>
                   <TableCell align="right">
-                    {product.magsafe ? "Yes" : "No"}
+                    {product.magsafe ? (
+                      <CheckTwoToneIcon color="success" />
+                    ) : (
+                      <CloseTwoToneIcon />
+                    )}
                   </TableCell>
                 </TableRow>
               </TableBody>

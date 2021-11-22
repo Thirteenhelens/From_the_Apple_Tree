@@ -10,18 +10,15 @@ function FavoriteProductButton({ product }) {
   const dispatch = useDispatch();
 
   const [favorite, setFavorite] = useState(false);
-  const user = useSelector((store) => store.user);
   const products = useSelector((store) => store.products);
 
   const handleFavorite = () => {
-    console.log("Adding to favorites", product.id);
-    dispatch({ type: "ADD_FAVORITE", payload: (user.id, product.id) });
+    dispatch({ type: "ADD_FAVORITE", payload: product });
     setFavorite(!favorite);
   };
 
   const handleRemoveFavorite = () => {
-    console.log("removing", product.id);
-    dispatch({ type: "REMOVE_FAVORITE", payload: (user.id, product.id) });
+    dispatch({ type: "REMOVE_FAVORITE", payload: product });
     setFavorite(!favorite);
   };
 
