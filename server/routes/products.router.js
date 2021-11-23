@@ -29,7 +29,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.put('/', rejectUnauthenticated, (req, res) => {
     const product = req.body;
-    console.log(product);
 
     const queryText = `
     UPDATE "Specs"
@@ -59,24 +58,24 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, [
         product.name,
         product.price,
-        product.image_URL,
-        product.Description,
+        product.image_url,
+        product.description,
         product.magsafe,
-        product.touchScreen,
-        product.backlit,
-        product.fingerPrint,
-        product.storage_TXT,
-        product.ram_txt,
-        product.gpu_txt,
+        product.touch_screen,
+        product.backlit_keyboard,
+        product.fingerprint_sensor,
+        product.storage_info,
+        product.memory_info,
+        product.graphics_card_info,
         product.camera,
-        product.camera_txt,
+        product.camera_info,
         product.display,
-        product.display_txt,
-        product.usbc,
-        product.usbc_txt,
-        product.hdmi,
-        product.hdmi_txt,
-        product.cpu_txt,
+        product.display_info,
+        product.usbc_port,
+        product.usbc_port_info,
+        product.hdmi_port,
+        product.hdmi_port_info,
+        product.processor_info,
         product.id])
         .then((response) => {
             res.sendStatus(200);
