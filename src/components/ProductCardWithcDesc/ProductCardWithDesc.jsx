@@ -12,7 +12,6 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import CardMedia from "@mui/material/CardMedia";
-import ShareIcon from "@mui/icons-material/Share";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
@@ -55,6 +54,16 @@ function ProductCardWithDesc({ product }) {
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest,
     }),
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
   }));
 
   return (
@@ -100,21 +109,21 @@ function ProductCardWithDesc({ product }) {
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 200 }} aria-label="simple table">
               <TableBody>
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left"> HDMI port:</TableCell>
                   <TableCell align="right">
                     {product.hdmi_port ? (
                       <>
-                      <CheckTwoToneIcon color="success" />
-                       {product.hdmi_port_info}
-                       </>
+                        <CheckTwoToneIcon color="success" />
+                        {product.hdmi_port_info}
+                      </>
                     ) : (
                       <CloseTwoToneIcon />
                     )}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left"> Backlit Keyboard:</TableCell>
                   <TableCell align="right">
                     {product.backlit_keyboard ? (
@@ -123,14 +132,14 @@ function ProductCardWithDesc({ product }) {
                       <CloseTwoToneIcon />
                     )}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left">Storage Capacity:</TableCell>
                   <TableCell align="right">{product.storage_info}</TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left">Webcam:</TableCell>
                   <TableCell align="right">
                     {product.backlit_keyboard ? (
@@ -140,9 +149,9 @@ function ProductCardWithDesc({ product }) {
                     )}
                     {product.camera_info}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left">Touch Screen:</TableCell>
                   <TableCell align="right">
                     {product.touch_screen ? (
@@ -151,9 +160,9 @@ function ProductCardWithDesc({ product }) {
                       <CloseTwoToneIcon />
                     )}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left">Fingerprint Sensor:</TableCell>
                   <TableCell align="right">
                     {product.fingerprint_sensor ? (
@@ -162,9 +171,9 @@ function ProductCardWithDesc({ product }) {
                       <CloseTwoToneIcon />
                     )}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
-                <TableRow>
+                <StyledTableRow>
                   <TableCell align="left">Magsafe:</TableCell>
                   <TableCell align="right">
                     {product.magsafe ? (
@@ -173,7 +182,7 @@ function ProductCardWithDesc({ product }) {
                       <CloseTwoToneIcon />
                     )}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
               </TableBody>
             </Table>
           </TableContainer>
