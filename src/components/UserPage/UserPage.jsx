@@ -21,7 +21,7 @@ function UserPage() {
       <div>
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
       </div>
-      {favorites.length > 1 ? (
+      {favorites.length > 0 ? (
         <>
       <CompareDevicesButton />
         <Box sx={{ flexGrow: 1, m: 2 }}>
