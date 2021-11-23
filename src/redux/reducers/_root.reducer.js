@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import productToEdit from './productToEdit.reducer';
-import productInfo from './productsInfo.reducer';
 import favorites from './favorites.reducer';
 import products from './products.reducer';
 import compare from './compare.reducer';
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   products,
   compare,
-  productInfo,
   productToEdit,
   favorites,
 });
