@@ -27,6 +27,64 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
+router.put('/', rejectUnauthenticated, (req, res) => {
+    const product = req.body;
+
+    const queryText = `
+    UPDATE "Specs"
+    SET "name" = $1,
+    "price" = $2,
+    "image_url" = $3,
+    "description"= $4,
+    "magsafe" = $5,
+    "touch_screen" = $6,
+    "backlit_keyboard" = $7,
+    "fingerprint_sensor" = $8,
+    "storage_info" = $9,
+    "memory_info" = $10,
+    "graphics_card_info" = $11,
+    "camera" = $12,
+    "camera_info" = $13,
+    "display" = $14,
+    "display_info" = $15,
+    "usbc_port" = $16,
+    "usbc_port_info" = $17,
+    "hdmi_port" = $18,
+    "hdmi_port_info" = $19,
+    "processor_info" = $20
+    WHERE "id" = $21;
+    `;
+
+    pool.query(queryText, [
+        product.name,
+        product.price,
+        product.image_url,
+        product.description,
+        product.magsafe,
+        product.touch_screen,
+        product.backlit_keyboard,
+        product.fingerprint_sensor,
+        product.storage_info,
+        product.memory_info,
+        product.graphics_card_info,
+        product.camera,
+        product.camera_info,
+        product.display,
+        product.display_info,
+        product.usbc_port,
+        product.usbc_port_info,
+        product.hdmi_port,
+        product.hdmi_port_info,
+        product.processor_info,
+        product.id])
+        .then((response) => {
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log(`Error updating product ->`, err);
+            res.sendStatus(500);
+        })
+})
+
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     let productId = req.params.id;
 

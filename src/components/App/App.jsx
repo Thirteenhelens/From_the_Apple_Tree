@@ -20,7 +20,6 @@ import AboutPage from "../AboutPage/AboutPage";
 import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from "../LandingPage/LandingPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import ProductCard from "../ProductCardNoDesc/ProductCardNoDesc";
 import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
@@ -37,7 +36,6 @@ function App() {
     dispatch({ type: "FETCH_USER" });
     dispatch({ type: "GET_PRODUCTS" });
     dispatch({ type: "GET_FAVORITES" });
-    dispatch({ type: "GET_PRODUCTS_INFO" });
   }, [dispatch]);
 
   return (
@@ -110,8 +108,8 @@ function App() {
             )}
           </Route>
 
-          <ProtectedRoute exact path="/compare" >
-          {/* onLeave={() => dispatch({type;Poopoo})}> */}
+          <ProtectedRoute exact path="/compare">
+            {/* onLeave={() => dispatch({type;Poopoo})}> */}
             <CompareProductsPage />
           </ProtectedRoute>
 

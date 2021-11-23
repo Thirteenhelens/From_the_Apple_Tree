@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
@@ -13,14 +12,29 @@ function AdminEditProduct() {
   const dispatch = useDispatch();
   const productToEdit = useSelector((store) => store.productToEdit);
 
+  const handleEdits = (event, property) => {
+    dispatch({
+      type: "EDIT_PRODUCT",
+      payload: { property: property, value: event.target.value },
+    });
+  };
+
+  const handleCheckedEdit = (event, property) => {
+    dispatch({
+      type: "EDIT_PRODUCT",
+      payload: { property: property, value: event.target.checked },
+    });
+  };
+
   return (
     <div>
       <h1>Edit product here</h1>
 
       <form
         onSubmit={(e) => {
-          e.preventDefault(), console.log(`You need to change this`);
-          // dispatch({ type: "ADD_PRODUCT", payload: newProduct });
+          e.preventDefault();
+          dispatch({ type: "UPDATE_PRODUCT", payload: productToEdit });
+          history.goBack();
         }}
       >
         <Grid container spacing={2}>
@@ -32,13 +46,7 @@ function AdminEditProduct() {
             <h3>Name</h3>
             <TextField
               value={productToEdit.name}
-              onChange={() =>
-                dispatch({
-                  type: "EDIT_THIS_PRODUCT",
-                  payload: productToEdit.name,
-                })
-              }
-              // DISPATCH THE CHANGES HERE
+              onChange={(event) => handleEdits(event, "name")}
               id="standard-basic"
               label="Name"
               variant="standard"
@@ -63,10 +71,7 @@ function AdminEditProduct() {
             <h3>Price</h3>
             <TextField
               value={productToEdit.price}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, price: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "price")}
               id="standard-basic"
               label="Price"
               variant="standard"
@@ -79,10 +84,7 @@ function AdminEditProduct() {
               multiline
               maxRows={3}
               value={productToEdit.image_url}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, image_URL: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "image_url")}
               id="standard-basic"
               label="URL"
               variant="standard"
@@ -95,10 +97,7 @@ function AdminEditProduct() {
               multiline
               maxRows={3}
               value={productToEdit.description}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, Description: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "description")}
               id="standard-basic"
               label="Description"
               variant="standard"
@@ -109,10 +108,7 @@ function AdminEditProduct() {
             <h3>CPU</h3>
             <TextField
               value={productToEdit.processor_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, cpu_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "processor_info")}
               id="standard-basic"
               label="CPU Info"
               variant="standard"
@@ -123,10 +119,7 @@ function AdminEditProduct() {
             <h3>HDMI</h3>
             <TextField
               value={productToEdit.hdmi_port_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, hdmi_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "hdmi_port_info")}
               id="standard-basic"
               label="HDMI Info"
               variant="standard"
@@ -136,10 +129,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.hdmi_port}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, hdmi: !newProduct.hdmi })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "hdmi_port")}
                   name="hdmi"
                   color="primary"
                 />
@@ -152,10 +142,7 @@ function AdminEditProduct() {
             <h3>USBC</h3>
             <TextField
               value={productToEdit.usbc_port_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, usbc_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "usbc_port_info")}
               id="standard-basic"
               label="USBC Info"
               variant="standard"
@@ -165,10 +152,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.usbc_port}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, usbc: !newProduct.usbc })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "usbc_port")}
                   name="usbc"
                   color="primary"
                 />
@@ -181,10 +165,7 @@ function AdminEditProduct() {
             <h3>Display</h3>
             <TextField
               value={productToEdit.display_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, display_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "display_info")}
               id="standard-basic"
               label="Display Info"
               variant="standard"
@@ -194,10 +175,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.display}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, display: !newProduct.display })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "display")}
                   name="Display"
                   color="primary"
                 />
@@ -210,10 +188,7 @@ function AdminEditProduct() {
             <h3>Camera</h3>
             <TextField
               value={productToEdit.camera_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, camera_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "camera_info")}
               id="standard-basic"
               label="Camera Info"
               variant="standard"
@@ -223,10 +198,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.camera}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, camera: !newProduct.camera })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "camera")}
                   name="camera"
                   color="primary"
                 />
@@ -239,10 +211,7 @@ function AdminEditProduct() {
             <h3>GPU</h3>
             <TextField
               value={productToEdit.graphics_card_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, gpu_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "graphics_card_info")}
               id="standard-basic"
               label="GPU Info"
               variant="standard"
@@ -253,10 +222,7 @@ function AdminEditProduct() {
             <h3>RAM</h3>
             <TextField
               value={productToEdit.memory_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, ram_txt: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "memory_info")}
               id="standard-basic"
               label="RAM Info"
               variant="standard"
@@ -267,10 +233,7 @@ function AdminEditProduct() {
             <h3>Storage</h3>
             <TextField
               value={productToEdit.storage_info}
-              onChange={
-                (e) => console.log(e.target.value)
-                // setNewProduct({ ...newProduct, storage_TXT: e.target.value })
-              }
+              onChange={(event) => handleEdits(event, "storage_info")}
               id="standard-basic"
               label="Storage Info"
               variant="standard"
@@ -283,12 +246,8 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.fingerprint_sensor}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({
-                    //   ...newProduct,
-                    //   fingerPrint: !newProduct.fingerPrint,
-                    // })
+                  onChange={(event) =>
+                    handleCheckedEdit(event, "fingerprint_sensor")
                   }
                   name="fingerprint"
                   color="primary"
@@ -304,9 +263,8 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.backlit_keyboard}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, backlit: !newProduct.backlit })
+                  onChange={(event) =>
+                    handleCheckedEdit(event, "backlit_keyboard")
                   }
                   name="backlit"
                   color="primary"
@@ -322,13 +280,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.touch_screen}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({
-                    //   ...newProduct,
-                    //   touchScreen: !newProduct.touchScreen,
-                    // })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "touch_screen")}
                   name="touch screen"
                   color="primary"
                 />
@@ -343,10 +295,7 @@ function AdminEditProduct() {
               control={
                 <Switch
                   checked={productToEdit.magsafe}
-                  onChange={
-                    () => console.log(e.target.value)
-                    // setNewProduct({ ...newProduct, magsafe: !newProduct.magsafe })
-                  }
+                  onChange={(event) => handleCheckedEdit(event, "magsafe")}
                   name="magsafe"
                   color="primary"
                 />

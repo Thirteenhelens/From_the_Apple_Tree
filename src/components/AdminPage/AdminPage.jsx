@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -36,6 +37,10 @@ function AdminPage() {
       border: 0,
     },
   }));
+
+  useEffect(() => {
+    dispatch({ type: "GET_PRODUCTS" });
+  }, []);
 
   return (
     <div className="container">
