@@ -9,7 +9,7 @@ import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
 
 function UserPage() {
   useEffect(() => {
-    dispatch({ type: "GET_PRODUCTS" });
+    dispatch({ type: "GET_FAVORITES" });
   }, []);
 
   const dispatch = useDispatch();
@@ -33,8 +33,7 @@ function UserPage() {
           >
             {favorites?.map((favorite) => {
               return (
-                <Grid item xs={4} key={favorite.id + 100}> 
-                {/* YOU NEED TO CHANGE THIS ASAP */}
+                <Grid item xs={4} key={favorite.id}>
                   <ProductCardNoDesc product={favorite} key={favorite.id} />
                 </Grid>
               );

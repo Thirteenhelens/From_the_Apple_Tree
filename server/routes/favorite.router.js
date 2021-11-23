@@ -7,7 +7,7 @@ const {
 } = require('../modules/authentication-middleware');
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    const userID = req.user.id; 
+    const userID = req.user.id;
 
     const queryText = `
         SELECT "Specs"."id", "name", "price", "image_url", "description", "display", "display_info",
@@ -43,6 +43,27 @@ router.post('/', rejectUnauthenticated, (req, res) => {
             res.sendStatus(200);
         }).catch((err) => {
             console.log(`Favorites Post error!`, err);
+            res.sendStatus(500);
+        })
+})
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const userID = req.user.id;
+    const productID = req.params.id;
+
+    console.log(req.params.id);
+
+    const queryText = `
+    DELETE FROM "products_to_user"
+    WHERE "user_id" = $1 AND "product_id" = $2;
+    `;
+
+    pool.query(queryText, [userID, productID])
+        .then((response) => {
+            console.log(`DELETE Successful!`);
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log(`Favorites DELETE error!`, err);
             res.sendStatus(500);
         })
 })

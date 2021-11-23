@@ -21,19 +21,22 @@ function* fetchFavorites() {
     }
 }
 
-// function* removeFavorite() {
-//     try {
-//         const response = yield axios.delete(`/api/favorite`)
-//     } catch (err) {
-//         console.log('Error removing from Favorites:', err);
-//         yield put({ type: 'FETCH_ERROR' })
-//     }
-// }
+function* removeFavorite(action) {
+    const { id } = action.payload
+    console.log(id)
+    try {
+        yield axios.delete(`/api/favorite/${id}`);
+        yield put({ type: "GET_FAVORITES" });
+    } catch (err) {
+        console.log('Error removing from Favorites:', err);
+        yield put({ type: 'FETCH_ERROR' })
+    }
+}
 
 function* favoriteSaga() {
     yield takeLatest('ADD_FAVORITE', addFavorite);
     yield takeLatest("GET_FAVORITES", fetchFavorites);
-    // yield takeLatest('REMOVE_FAVORITE', removeFavorite);
+    yield takeLatest('REMOVE_FAVORITE', removeFavorite);
 }
 
 export default favoriteSaga;
