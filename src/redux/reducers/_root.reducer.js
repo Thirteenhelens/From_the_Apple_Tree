@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import productToEdit from './productToEdit.reducer';
 import productInfo from './productsInfo.reducer';
+import favorites from './favorites.reducer';
 import products from './products.reducer';
 import compare from './compare.reducer';
 import errors from './errors.reducer';
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   compare,
   productInfo,
   productToEdit,
+  favorites,
 });
 
 export default rootReducer;

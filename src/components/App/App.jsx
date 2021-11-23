@@ -36,6 +36,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: "FETCH_USER" });
     dispatch({ type: "GET_PRODUCTS" });
+    dispatch({ type: "GET_FAVORITES" });
     dispatch({ type: "GET_PRODUCTS_INFO" });
   }, [dispatch]);
 

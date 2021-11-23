@@ -13,6 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function ProductCardNoDesc({ product }) {
+
   const dispatch = useDispatch();
   // Add & Remove device to & from favorites
   const [favorite, setFavorite] = useState(false);
