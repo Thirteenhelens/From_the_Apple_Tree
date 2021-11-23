@@ -14,6 +14,7 @@ import TableContainer from "@mui/material/TableContainer";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import CompareProductCard from "../CompareProductCard/CompareProductCard";
+import { styled } from "@mui/system";
 
 function CompareProductsPage() {
   const history = useHistory();
@@ -26,6 +27,17 @@ function CompareProductsPage() {
     history.push("/user");
     dispatch({ type: "CLEAR_COMPARE" });
   };
+
+
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
 
   return (
     <div className="container">
@@ -91,7 +103,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -105,7 +117,7 @@ function CompareProductsPage() {
                   <TableCell component="th" scope="row" align="center">
                     {compare[1]?.graphics_card_info}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -123,7 +135,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -137,7 +149,7 @@ function CompareProductsPage() {
                   <TableCell component="th" scope="row" align="center">
                     {compare[1]?.storage_info}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
