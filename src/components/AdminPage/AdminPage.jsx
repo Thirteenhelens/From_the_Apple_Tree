@@ -16,7 +16,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 function AdminPage() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const productInfo = useSelector((store) => store.productInfo);
+  const products = useSelector((store) => store.products);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -32,7 +32,6 @@ function AdminPage() {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
@@ -68,7 +67,7 @@ function AdminPage() {
             </StyledTableRow>
           </TableHead>
           <TableBody>
-            {productInfo.map((product) => (
+            {products.map((product) => (
               <StyledTableRow
                 key={product.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

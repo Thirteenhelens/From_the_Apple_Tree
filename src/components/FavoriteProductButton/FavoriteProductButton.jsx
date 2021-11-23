@@ -4,13 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import { useSelector, useDispatch } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { use } from "passport";
 
 function FavoriteProductButton({ product }) {
+  // filter(selectedProduct => action.payload.id !== selectedProduct.id);
+  // favorites.filter(favorite)
+
   const dispatch = useDispatch();
 
   const [favorite, setFavorite] = useState(false);
-  const products = useSelector((store) => store.products);
 
   const handleFavorite = () => {
     dispatch({ type: "ADD_FAVORITE", payload: product });
