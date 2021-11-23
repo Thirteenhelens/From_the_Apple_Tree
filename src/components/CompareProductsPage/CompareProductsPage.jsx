@@ -14,7 +14,7 @@ import TableContainer from "@mui/material/TableContainer";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import CompareProductCard from "../CompareProductCard/CompareProductCard";
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 
 function CompareProductsPage() {
   const history = useHistory();
@@ -28,12 +28,11 @@ function CompareProductsPage() {
     dispatch({ type: "CLEAR_COMPARE" });
   };
 
-
-
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
+    // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
@@ -80,7 +79,7 @@ function CompareProductsPage() {
 
           <br />
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ minWidth: 650 }} aria-label="customized table">
               <colgroup>
                 <col style={colWidth} />
                 <col style={{ width: "33%" }} />
@@ -104,7 +103,7 @@ function CompareProductsPage() {
                 </TableRow>
 
                 <StyledTableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     Graphics
@@ -180,7 +179,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -207,7 +206,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -240,7 +239,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -269,7 +268,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -296,7 +295,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -319,7 +318,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -346,7 +345,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </TableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -369,7 +368,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
               </TableBody>
             </Table>
           </TableContainer>
