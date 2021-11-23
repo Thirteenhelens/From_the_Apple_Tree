@@ -6,7 +6,9 @@ const productToEditReducer = (state = [], action) => {
             return {
                 ...state,
                 [action.payload.property]: action.payload.value
-            }
+            };
+        case 'EMPTY_EDIT':
+            return state = [];
         default:
             return state;
     }
