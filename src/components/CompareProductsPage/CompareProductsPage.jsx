@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { styled } from "@mui/material/styles";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,7 +15,6 @@ import TableContainer from "@mui/material/TableContainer";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import CompareProductCard from "../CompareProductCard/CompareProductCard";
-import { styled } from "@mui/material/styles";
 
 function CompareProductsPage() {
   const history = useHistory();
@@ -86,7 +86,7 @@ function CompareProductsPage() {
                 <col style={{ width: "33%" }} />
               </colgroup>
               <TableBody>
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -100,7 +100,7 @@ function CompareProductsPage() {
                   <TableCell component="th" scope="row" align="center">
                     {compare[1]?.processor_info}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -118,7 +118,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </StyledTableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -132,7 +132,7 @@ function CompareProductsPage() {
                   <TableCell component="th" scope="row" align="center">
                     {compare[1]?.memory_info}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -150,7 +150,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </StyledTableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -177,7 +177,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -208,7 +208,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </StyledTableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -237,7 +237,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -270,7 +270,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </StyledTableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -293,7 +293,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -320,7 +320,7 @@ function CompareProductsPage() {
                   </TableCell>
                 </StyledTableRow>
 
-                <TableRow
+                <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -343,7 +343,7 @@ function CompareProductsPage() {
                         <CloseTwoToneIcon />
                       ))}
                   </TableCell>
-                </TableRow>
+                </StyledTableRow>
 
                 <StyledTableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
