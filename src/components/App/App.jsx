@@ -36,6 +36,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: "FETCH_USER" });
     dispatch({ type: "GET_PRODUCTS" });
+    dispatch({ type: "GET_FAVORITES" });
     dispatch({ type: "GET_PRODUCTS_INFO" });
   }, [dispatch]);
 
@@ -109,12 +110,9 @@ function App() {
             )}
           </Route>
 
-          <ProtectedRoute exact path="/compare">
+          <ProtectedRoute exact path="/compare" >
+          {/* onLeave={() => dispatch({type;Poopoo})}> */}
             <CompareProductsPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/admin">
-            <AdminPage />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/addProduct">
@@ -125,14 +123,20 @@ function App() {
             <AdminEditProduct />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/choose">
+            <ChooseProductPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/admin">
+            {/* If the user has high enough clerance, they are brought to the admin page. 
+            Otherwise, user is brought to the home page */}
+            {user.clearance_level > 1 ? <AdminPage /> : <UserPage />}
+          </ProtectedRoute>
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
-
-          <CompareProductsPage />
-          {/* <ChooseProduct /> */}
-          <ProductCard />
         </Switch>
         <Footer />
       </div>

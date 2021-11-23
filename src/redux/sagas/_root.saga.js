@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import registrationSaga from './registration.saga';
-import productsInfoSaga from './productsInfo.saga';
+import favoriteSaga from './favorite.saga';
 import productsSaga from './products.saga';
 import loginSaga from './login.saga';
 import userSaga from './user.saga';
@@ -14,11 +14,10 @@ import userSaga from './user.saga';
 // and login triggers setting the user
 export default function* rootSaga() {
   yield all([
-    loginSaga(), // login saga is now registered
-    registrationSaga(),
     userSaga(),
+    loginSaga(), // login saga is now registered
     productsSaga(),
-    productsInfoSaga(),
-    
+    favoriteSaga(),
+    registrationSaga(),
   ]);
 }

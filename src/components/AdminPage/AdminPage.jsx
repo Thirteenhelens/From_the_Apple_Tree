@@ -2,20 +2,40 @@ import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { styled } from "@mui/material/styles";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
+import { useDispatch, useSelector } from "react-redux";
 import TableContainer from "@mui/material/TableContainer";
 import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 
 function AdminPage() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const productInfo = useSelector((store) => store.productInfo);
+  const products = useSelector((store) => store.products);
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
 
   return (
     <div className="container">
@@ -25,30 +45,30 @@ function AdminPage() {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
-            <TableRow>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Price</TableCell>
+            <StyledTableRow>
+              <StyledTableCell align="right">Name</StyledTableCell>
+              <StyledTableCell align="right">Price</StyledTableCell>
               {/* <TableCell align="right">Image</TableCell> */}
-              <TableCell align="right">Description</TableCell>
-              <TableCell align="right">Display</TableCell>
-              <TableCell align="right">Camera</TableCell>
-              <TableCell align="right">GPU</TableCell>
-              <TableCell align="right">CPU</TableCell>
-              <TableCell align="right">RAM</TableCell>
-              <TableCell align="right">Storage</TableCell>
-              <TableCell align="right">Fingerprint</TableCell>
-              <TableCell align="right">Touch-Screen</TableCell>
-              <TableCell align="right">Backlit Keyboard</TableCell>
-              <TableCell align="right">Magsafe</TableCell>
-              <TableCell align="right">USBC</TableCell>
-              <TableCell align="right">HDMI</TableCell>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right"></TableCell>
-            </TableRow>
+              <StyledTableCell align="right">Description</StyledTableCell>
+              <StyledTableCell align="right">Display</StyledTableCell>
+              <StyledTableCell align="right">Camera</StyledTableCell>
+              <StyledTableCell align="right">GPU</StyledTableCell>
+              <StyledTableCell align="right">CPU</StyledTableCell>
+              <StyledTableCell align="right">RAM</StyledTableCell>
+              <StyledTableCell align="right">Storage</StyledTableCell>
+              <StyledTableCell align="right">Fingerprint</StyledTableCell>
+              <StyledTableCell align="right">Touch-Screen</StyledTableCell>
+              <StyledTableCell align="right">Backlit Keyboard</StyledTableCell>
+              <StyledTableCell align="right">Magsafe</StyledTableCell>
+              <StyledTableCell align="right">USBC</StyledTableCell>
+              <StyledTableCell align="right">HDMI</StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+            </StyledTableRow>
           </TableHead>
           <TableBody>
-            {productInfo.map((product) => (
-              <TableRow
+            {products.map((product) => (
+              <StyledTableRow
                 key={product.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
@@ -99,7 +119,7 @@ function AdminPage() {
 
                   <AdminDeleteBttn product={product} />
                 </TableCell>
-              </TableRow>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>

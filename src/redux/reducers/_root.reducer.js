@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import productToEdit from './productToEdit.reducer';
-import productInfo from './productsInfo.reducer';
+import favorites from './favorites.reducer';
 import products from './products.reducer';
 import compare from './compare.reducer';
 import errors from './errors.reducer';
@@ -13,11 +13,11 @@ import user from './user.reducer';
 // Lets make a bigger object for our store, with the objects from our reducers.
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
-  errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  products,
+  errors, // contains registrationMessage and loginMessage
   compare,
-  productInfo,
+  products,
+  favorites,
   productToEdit,
 });
 
