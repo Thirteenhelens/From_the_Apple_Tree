@@ -20,9 +20,10 @@ function UserPage() {
     <>
       <div>
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
-        <CompareDevicesButton />
       </div>
-      {favorites ? (
+      {favorites.length > 1 ? (
+        <>
+      <CompareDevicesButton />
         <Box sx={{ flexGrow: 1, m: 2 }}>
           <Grid
             container
@@ -40,11 +41,12 @@ function UserPage() {
             })}
           </Grid>
         </Box>
+        </>
       ) : (
         <p className="emptyDevicesText">
           <br />
           It looks Like you don't have any favorite devices! Click{" "}
-          <Link to="/info">here</Link> to browse.
+          <Link to="/choose">here</Link> to browse.
         </p>
       )}
     </>
