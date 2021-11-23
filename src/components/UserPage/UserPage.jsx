@@ -9,7 +9,7 @@ import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
 
 function UserPage() {
   useEffect(() => {
-    dispatch({ type: "GET_PRODUCTS" });
+    dispatch({ type: "GET_FAVORITES" });
   }, []);
 
   const dispatch = useDispatch();
@@ -20,9 +20,10 @@ function UserPage() {
     <>
       <div>
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
-        <CompareDevicesButton />
       </div>
-      {favorites ? (
+      {favorites.length > 1 ? (
+        <>
+      <CompareDevicesButton />
         <Box sx={{ flexGrow: 1, m: 2 }}>
           <Grid
             container
@@ -33,19 +34,19 @@ function UserPage() {
           >
             {favorites?.map((favorite) => {
               return (
-                <Grid item xs={4} key={favorite.id + 100}> 
-                {/* YOU NEED TO CHANGE THIS ASAP */}
+                <Grid item xs={4} key={favorite.id}>
                   <ProductCardNoDesc product={favorite} key={favorite.id} />
                 </Grid>
               );
             })}
           </Grid>
         </Box>
+        </>
       ) : (
         <p className="emptyDevicesText">
           <br />
           It looks Like you don't have any favorite devices! Click{" "}
-          <Link to="/info">here</Link> to browse.
+          <Link to="/choose">here</Link> to browse.
         </p>
       )}
     </>

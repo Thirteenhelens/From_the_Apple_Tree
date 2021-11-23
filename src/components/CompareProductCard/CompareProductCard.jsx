@@ -2,16 +2,13 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { pink } from "@mui/material/colors";
 import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function CompareProductCard({ product }) {
   const dispatch = useDispatch();
@@ -30,10 +27,7 @@ function CompareProductCard({ product }) {
   // End add & remove device to & from compare
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        title={product.name}
-        subheader={product.price}
-      />
+      <CardHeader title={product.name} subheader={product.price} />
       <CardMedia
         component="img"
         height="250"
@@ -46,13 +40,7 @@ function CompareProductCard({ product }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={handleFavorite}>
-          {favorite ? (
-            <FavoriteIcon sx={{ color: pink[500] }} />
-          ) : (
-            <FavoriteBorderIcon sx={{ color: pink[500] }} />
-          )}
-        </IconButton>
+        <FavoriteProductButton product={product} />
         <Button
           variant="contained"
           onClick={removeFromCompare}
