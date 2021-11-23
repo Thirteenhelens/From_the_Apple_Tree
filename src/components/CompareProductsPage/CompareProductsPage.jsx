@@ -21,8 +21,6 @@ function CompareProductsPage() {
   const dispatch = useDispatch();
   const compare = useSelector((store) => store.compare);
 
-  const colWidth = compare.length === 1 ? { width: "29%" } : { width: "33%" };
-
   const handleBack = () => {
     history.push("/user");
     dispatch({ type: "CLEAR_COMPARE" });
@@ -81,7 +79,7 @@ function CompareProductsPage() {
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="customized table">
               <colgroup>
-                <col style={colWidth} />
+                <col style={{ width: "29%" }} />
                 <col style={{ width: "33%" }} />
                 <col style={{ width: "33%" }} />
               </colgroup>
