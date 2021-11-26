@@ -1,8 +1,12 @@
-.inputs{
-    margin: 10px;
+h1 {
+  text-align: center;
+  margin-bottom: 55px;
 }
 
-h1{
-    text-align: center;
-    margin-bottom: 55px;
+.inputs {
+  margin: 10px;
+}
+
+.buttonContainer {
+  text-align: right;
 }

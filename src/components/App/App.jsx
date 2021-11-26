@@ -10,9 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
-
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LoginPage from "../LoginPage/LoginPage";
@@ -20,6 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from "../LandingPage/LandingPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
