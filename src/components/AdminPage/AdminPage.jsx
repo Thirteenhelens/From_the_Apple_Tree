@@ -1,4 +1,6 @@
+import "./AdminPage.css";
 import { useEffect } from "react";
+import { Box } from "@mui/system";
 import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -43,17 +45,22 @@ function AdminPage() {
   }, []);
 
   return (
-    <div className="container">
-      <Button variant="outlined" onClick={() => history.push("/addProduct")}>
-        Add New Device
-      </Button>
+    <Box sx={{ m: 5 }}>
+      <h1>Welcome, Admin</h1>
+      <br />
+      <div className="addButton">
+        <Button variant="outlined" onClick={() => history.push("/addProduct")}>
+          Add New Device
+        </Button>
+      </div>
+      <br />
+      <br />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <StyledTableRow>
               <StyledTableCell align="right">Name</StyledTableCell>
               <StyledTableCell align="right">Price</StyledTableCell>
-              {/* <TableCell align="right">Image</TableCell> */}
               <StyledTableCell align="right">Description</StyledTableCell>
               <StyledTableCell align="right">Display</StyledTableCell>
               <StyledTableCell align="right">Camera</StyledTableCell>
@@ -79,7 +86,6 @@ function AdminPage() {
               >
                 <TableCell align="right">{product.name}</TableCell>
                 <TableCell align="right">{product.price}</TableCell>
-                {/* <TableCell align="right">{product.image}</TableCell> */}
                 <TableCell align="right">{product.description}</TableCell>
                 <TableCell align="right">
                   {product.display ? "Yes, " : "No"} {product.display_info}
@@ -110,7 +116,7 @@ function AdminPage() {
                   {product.usbc_port ? "Yes " : "No"} {product.usbc_port_info}
                 </TableCell>
                 <TableCell align="right">
-                  {product.HDMI_port && "Yes "} {product.HDMI_port_info}
+                  {product.hdmi_port && "Yes "} {product.hdmi_port_info}
                 </TableCell>
                 <TableCell>
                   <IconButton
@@ -129,7 +135,7 @@ function AdminPage() {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </Box>
   );
 }
 

@@ -11,7 +11,7 @@ function ChooseProductPage() {
   const products = useSelector((store) => store.products);
 
   return (
-    <div className="container">
+    <div>
       <h1>Choose Devices</h1>
       <div className="compareButton">
         <CompareDevicesButton />
