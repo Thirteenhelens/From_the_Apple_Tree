@@ -1,19 +1,20 @@
 import "./CompareProductsPage.css";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Table from "@mui/material/Table";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TableRow from "@mui/material/TableRow";
-import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
+import TableBody from "@mui/material/TableBody";
+import { useDispatch, useSelector } from "react-redux";
 import TableContainer from "@mui/material/TableContainer";
-import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CompareProductCard from "../CompareProductCard/CompareProductCard";
 
 function CompareProductsPage() {
@@ -30,25 +31,24 @@ function CompareProductsPage() {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
   }));
 
   return (
-    <div className="container">
+    <Box sx={{ ml: 5, mr: 5 }}>
       {compare.length === 0 ? (
-        <p>
+        <Typography
+          variant="h5"
+          sx={{ mt: 20, mb: 50 }}
+          className="noDevicesText"
+        >
           It looks like you haven't added any devices to compare! Please return
           after doing so. <Link to="/user">Home</Link>
-        </p>
+        </Typography>
       ) : (
-        <>
-          <Button variant="outlined" color="error" onClick={handleBack}>
-            Back
-          </Button>
-
+        <div>
           <Grid
             container
             spacing={10}
@@ -75,8 +75,15 @@ function CompareProductsPage() {
             })}
           </Grid>
 
+          <div>
+            <Button color="error" variant="contained" onClick={handleBack}>
+              Back
+            </Button>
+          </div>
+          
           <br />
-          <TableContainer component={Paper}>
+
+          <TableContainer component={Paper} elevation={5}>
             <Table sx={{ minWidth: 650 }} aria-label="customized table">
               <colgroup>
                 <col style={{ width: "29%" }} />
@@ -370,9 +377,9 @@ function CompareProductsPage() {
               </TableBody>
             </Table>
           </TableContainer>
-        </>
+        </div>
       )}
-    </div>
+    </Box>
   );
 }
 
