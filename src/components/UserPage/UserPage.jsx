@@ -17,39 +17,39 @@ function UserPage() {
   const favorites = useSelector((store) => store.favorites);
 
   return (
-    <>
+    <div>
       <div>
-        <h2 className="welcomeText">Welcome, {user.username}!</h2>
+        <h2 className="welcomeText"> Welcome, {user.username}!</h2>
       </div>
       {favorites.length > 0 ? (
-        <>
-      <CompareDevicesButton />
-        <Box sx={{ flexGrow: 1, m: 2 }}>
-          <Grid
-            container
-            spacing={2}
-            direction="row"
-            alignItems="flex-start"
-            justifyContent="flex-start"
-          >
-            {favorites?.map((favorite) => {
-              return (
-                <Grid item xs={4} key={favorite.id}>
-                  <ProductCardNoDesc product={favorite} key={favorite.id} />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Box>
-        </>
+        <div>
+          <CompareDevicesButton />
+          <Box sx={{ flexGrow: 1, m: 2 }}>
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+              alignItems="flex-start"
+              justifyContent="flex-start"
+            >
+              {favorites?.map((favorite) => {
+                return (
+                  <Grid item xs={4} key={favorite.id}>
+                    <ProductCardNoDesc product={favorite} key={favorite.id} />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Box>
+        </div>
       ) : (
         <p className="emptyDevicesText">
           <br />
-          It looks Like you don't have any favorite devices! Click{" "}
-          <Link to="/choose">here</Link> to browse.
+          It looks Like you don't have any favorite devices! Click
+          <Link to="/choose">here</Link> to browse devices.
         </p>
       )}
-    </>
+    </div>
   );
 }
 
