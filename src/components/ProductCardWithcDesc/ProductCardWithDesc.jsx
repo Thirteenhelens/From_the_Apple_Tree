@@ -10,14 +10,12 @@ import Collapse from "@mui/material/Collapse";
 import Checkbox from "@mui/material/Checkbox";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import TableContainer from "@mui/material/TableContainer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
@@ -60,7 +58,6 @@ function ProductCardWithDesc({ product }) {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
@@ -83,15 +80,15 @@ function ProductCardWithDesc({ product }) {
       <CardActions disableSpacing>
         <FavoriteProductButton product={product} />
         {checked ? (
-          <>
+          <div>
             <Checkbox checked={checked} onChange={removeFromCompare} />
             <p>Remove from compare</p>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <Checkbox checked={checked} onChange={addToCompare} />
             <p>Add to compare</p>
-          </>
+          </div>
         )}
         <ExpandMore
           expand={expanded}
@@ -113,10 +110,10 @@ function ProductCardWithDesc({ product }) {
                   <TableCell align="left"> HDMI port:</TableCell>
                   <TableCell align="right">
                     {product.hdmi_port ? (
-                      <>
+                      <div>
                         <CheckTwoToneIcon color="success" />
                         {product.hdmi_port_info}
-                      </>
+                      </div>
                     ) : (
                       <CloseTwoToneIcon />
                     )}

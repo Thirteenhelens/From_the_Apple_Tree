@@ -46,12 +46,11 @@ function UserPage() {
         <p className="emptyDevicesText">
           <br />
           It looks Like you don't have any favorite devices! Click
-          <Link to="/choose">here</Link> to browse devices.
+          <Link to="/choose">here</Link> to browse devices to choose from.
         </p>
       )}
     </div>
   );
 }
 
-// this allows us to use <App /> in index.js
 export default UserPage;

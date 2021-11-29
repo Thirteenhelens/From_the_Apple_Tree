@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* addFavorite(action) {
     try {
-        yield axios.post(`/api/favorite`, action.payload)
+        yield axios.post('/api/favorite', action.payload)
         yield put({ type: "GET_FAVORITES" });
     } catch (err) {
         console.log('Error Adding to Favorites:', err);
@@ -13,7 +13,7 @@ function* addFavorite(action) {
 
 function* fetchFavorites() {
     try {
-        const response = yield axios.get(`/api/favorite`);
+        const response = yield axios.get('/api/favorite');
         yield put({ type: 'SET_FAVORITES', payload: response.data });
     } catch (err) {
         console.log('Error on fetchProducts: ', err);
