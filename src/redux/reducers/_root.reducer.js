@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux';
-import productToEdit from './productToEdit.reducer';
-import favorites from './favorites.reducer';
-import products from './products.reducer';
-import compare from './compare.reducer';
-import errors from './errors.reducer';
 import user from './user.reducer';
+import errors from './errors.reducer';
+import compare from './compare.reducer';
+import { combineReducers } from 'redux';
+import products from './products.reducer';
+import favorites from './favorites.reducer';
+import productToEdit from './productToEdit.reducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.

@@ -10,14 +10,12 @@ import Collapse from "@mui/material/Collapse";
 import Checkbox from "@mui/material/Checkbox";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import TableContainer from "@mui/material/TableContainer";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
@@ -60,20 +58,19 @@ function ProductCardWithDesc({ product }) {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
     },
   }));
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450 }}>
       <CardHeader title={product.name} subheader={product.price} />
       <CardMedia
+        height="350"
         component="img"
-        height="250"
-        image={product.image_url}
         alt={product.name}
+        image={product.image_url}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -113,10 +110,10 @@ function ProductCardWithDesc({ product }) {
                   <TableCell align="left"> HDMI port:</TableCell>
                   <TableCell align="right">
                     {product.hdmi_port ? (
-                      <>
+                      <div>
                         <CheckTwoToneIcon color="success" />
                         {product.hdmi_port_info}
-                      </>
+                      </div>
                     ) : (
                       <CloseTwoToneIcon />
                     )}

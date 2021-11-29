@@ -7,7 +7,7 @@ function CompareDevicesButton() {
   const compare = useSelector((store) => store.compare);
 
   return (
-    <>
+    <div>
       {compare.length === 2 ? (
         <Button variant="outlined" onClick={() => history.push("/compare")}>
           Compare Devices
@@ -17,7 +17,7 @@ function CompareDevicesButton() {
           Compare Devices
         </Button>
       )}
-    </>
+    </div>
   );
 }
 

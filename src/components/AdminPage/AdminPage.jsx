@@ -49,7 +49,7 @@ function AdminPage() {
       <h1>Welcome, Admin</h1>
       <br />
       <div className="addButton">
-        <Button variant="outlined" onClick={() => history.push("/addProduct")}>
+        <Button variant="contained" onClick={() => history.push("/addProduct")}>
           Add New Device
         </Button>
       </div>
@@ -74,7 +74,6 @@ function AdminPage() {
               <StyledTableCell align="right">Magsafe</StyledTableCell>
               <StyledTableCell align="right">USBC</StyledTableCell>
               <StyledTableCell align="right">HDMI</StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
               <StyledTableCell align="right"></StyledTableCell>
             </StyledTableRow>
           </TableHead>

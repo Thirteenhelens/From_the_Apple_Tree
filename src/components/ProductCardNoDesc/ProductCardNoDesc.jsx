@@ -28,11 +28,11 @@ function ProductCardNoDesc({ product }) {
   // End add & remove device to & from compare
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450 }}>
       <CardHeader title={product.name} subheader={product.price} />
       <CardMedia
         component="img"
-        height="250"
+        height="350"
         image={product.image_url}
         alt={product.name}
       />
@@ -45,15 +45,13 @@ function ProductCardNoDesc({ product }) {
         <FavoriteProductButton product={product} />
         {checked ? (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={removeFromCompare} />{" "}
-            <p>Remove from compare</p>{" "}
+            <Checkbox checked={checked} onChange={removeFromCompare} />
+            <p>Remove from compare</p>
           </>
         ) : (
           <>
-            {" "}
-            <Checkbox checked={checked} onChange={addToCompare} />{" "}
-            <p>Add to compare</p>{" "}
+            <Checkbox checked={checked} onChange={addToCompare} />
+            <p>Add to compare</p>
           </>
         )}
       </CardActions>

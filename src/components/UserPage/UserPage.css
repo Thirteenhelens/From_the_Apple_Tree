@@ -1,7 +1,11 @@
-.welcomeText{
-    text-align: center;
+.userPageBody{
+  background-color: #ccccff;
 }
 
-.emptyDevicesText{
-    text-align: center;
+.welcomeText {
+  text-align: center;
+}
+
+.emptyDevicesText {
+  text-align: center;
 }

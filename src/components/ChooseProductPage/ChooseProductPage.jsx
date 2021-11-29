@@ -7,17 +7,18 @@ import ProductCardWithDesc from "../ProductCardWithcDesc/ProductCardWithDesc";
 import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
 
 function ChooseProductPage() {
-  const user = useSelector((store) => store.user);
   const products = useSelector((store) => store.products);
 
   return (
     <div>
-      <h1>Choose Devices</h1>
-      <div className="compareButton">
-        <CompareDevicesButton />
-      </div>
+      <h1>Browse Devices</h1>
 
-      <Box sx={{ flexGrow: 1, m: 2 }}>
+      <Box className="" sx={{ flexGrow: 2, ml: 10, mr: 10 }}>
+        <div className="compareButton">
+          <CompareDevicesButton />
+        </div>
+        <br />
+
         <Grid
           container
           spacing={2}

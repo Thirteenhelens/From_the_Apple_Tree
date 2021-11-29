@@ -8,22 +8,20 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
+import "./App.css";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import UserPage from "../UserPage/UserPage";
-import InfoPage from "../InfoPage/InfoPage";
 import LoginPage from "../LoginPage/LoginPage";
 import AboutPage from "../AboutPage/AboutPage";
 import AdminPage from "../AdminPage/AdminPage";
 import LandingPage from "../LandingPage/LandingPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import AdminEditProduct from "../AdminEditProduct/AdminEditProduct";
 import ChooseProductPage from "../ChooseProductPage/ChooseProductPage";
 import CompareProductsPage from "../CompareProductsPage/CompareProductsPage";
 import AdminAddProductPage from "../AdminAddProductPage/AdminAddProductPage";
-
-import "./App.css";
-import AdminEditProduct from "../AdminEditProduct/AdminEditProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,14 +63,6 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -107,7 +97,6 @@ function App() {
           </Route>
 
           <ProtectedRoute exact path="/compare">
-            {/* onLeave={() => dispatch({type;Poopoo})}> */}
             <CompareProductsPage />
           </ProtectedRoute>
 
@@ -124,7 +113,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/admin">
-            {/* If the user has high enough clerance, they are brought to the admin page. 
+            {/* If the user has high enough clearance, they are brought to the admin page. 
             Otherwise, user is brought to the home page */}
             {user.clearance_level > 1 ? <AdminPage /> : <UserPage />}
           </ProtectedRoute>
