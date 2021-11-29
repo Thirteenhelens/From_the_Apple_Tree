@@ -13,7 +13,7 @@ function ChooseProductPage() {
     <div>
       <h1>Browse Devices</h1>
 
-      <Box className="" sx={{ flexGrow: 2, ml: 14, mr: 4 }}>
+      <Box className="" sx={{ flexGrow: 2, ml: 10, mr: 10 }}>
         <div className="compareButton">
           <CompareDevicesButton />
         </div>

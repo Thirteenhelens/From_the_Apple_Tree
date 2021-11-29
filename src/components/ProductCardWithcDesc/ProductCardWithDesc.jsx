@@ -64,13 +64,13 @@ function ProductCardWithDesc({ product }) {
   }));
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450 }}>
       <CardHeader title={product.name} subheader={product.price} />
       <CardMedia
-        component="img"
         height="350"
-        image={product.image_url}
+        component="img"
         alt={product.name}
+        image={product.image_url}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

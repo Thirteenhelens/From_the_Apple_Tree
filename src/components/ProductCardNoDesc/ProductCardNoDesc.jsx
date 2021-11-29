@@ -28,7 +28,7 @@ function ProductCardNoDesc({ product }) {
   // End add & remove device to & from compare
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450 }}>
       <CardHeader title={product.name} subheader={product.price} />
       <CardMedia
         component="img"

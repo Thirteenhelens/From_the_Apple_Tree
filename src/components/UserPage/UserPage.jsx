@@ -26,7 +26,7 @@ function UserPage() {
       </div>
       {favorites.length > 0 ? (
         <div>
-          <Box className="" sx={{ flexGrow: 2, ml: 14, mr: 4 }}>
+          <Box className="" sx={{ flexGrow: 2, ml: 10, mr: 10 }}>
             <CompareDevicesButton />
             <br />
             <Grid
