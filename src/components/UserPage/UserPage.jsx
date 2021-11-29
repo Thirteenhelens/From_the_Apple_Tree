@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
+import { Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCardNoDesc from "../ProductCardNoDesc/ProductCardNoDesc";
 import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
@@ -17,14 +18,17 @@ function UserPage() {
   const favorites = useSelector((store) => store.favorites);
 
   return (
-    <div>
+    <div 
+    // className="userPageBody"
+    >
       <div>
-        <h2 className="welcomeText"> Welcome, {user.username}!</h2>
+        <h1 className="welcomeText"> Welcome, {user.username}!</h1>
       </div>
       {favorites.length > 0 ? (
         <div>
-          <CompareDevicesButton />
-          <Box sx={{ flexGrow: 1, m: 2 }}>
+          <Box className="" sx={{ flexGrow: 2, ml: 14, mr: 4 }}>
+            <CompareDevicesButton />
+            <br />
             <Grid
               container
               spacing={2}
@@ -43,11 +47,11 @@ function UserPage() {
           </Box>
         </div>
       ) : (
-        <p className="emptyDevicesText">
+        <Typography variant="h5" className="emptyDevicesText">
           <br />
-          It looks Like you don't have any favorite devices! Click
+          It looks Like you don't have any favorite devices! Please click {""}
           <Link to="/choose">here</Link> to browse devices to choose from.
-        </p>
+        </Typography>
       )}
     </div>
   );
