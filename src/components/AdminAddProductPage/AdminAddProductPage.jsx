@@ -36,12 +36,42 @@ function AdminAddProductPage() {
     image_URL: "",
   });
 
+  const demoFill = () =>
+    setNewProduct({
+      name: "(New) MacBook Pro 2021",
+      price: "$2400",
+      magsafe: true,
+      touchScreen: false,
+      backlit: true,
+      fingerPrint: true,
+      storage_TXT: "1tb",
+      ram_txt: "32gb",
+      gpu_txt: "16-core M1 Pro Max",
+      camera: true,
+      camera_txt: "1080p",
+      display: true,
+      display_txt: '16" 4k @ 120hz',
+      usbc: true,
+      usbc_txt: "4",
+      hdmi: true,
+      hdmi_txt: "HDMI 2.0",
+      cpu_txt: "M1 Pro Max",
+      Description:
+        `Apple's newest and best in class laptop. One of the best portable devices for anything
+        involving graphical design, video editing, and anything computing intensive.`,
+      image_URL:
+        "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg",
+    });
+
   return (
     <div className="inputs">
       <h1>Add a new product</h1>
 
       <Box sx={{ ml: 35, mr: 10 }}>
         <div className="buttonContainer">
+          <div onClick={demoFill}>
+            <p className="secret">heheheehehehe</p>
+          </div>
           <Button
             sx={{ mr: 1 }}
             type="submit"
@@ -82,7 +112,7 @@ function AdminAddProductPage() {
           </Grid>
 
           <Grid item xs={4} />
-          
+
           <Grid item xs={4}>
             <h3>Price</h3>
             <TextField
