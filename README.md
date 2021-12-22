@@ -2,7 +2,7 @@
 # From the Apple tree
 
 ## Description
-**Duration:** _2 week sprint_
+**Duration:** _2 week sprint_ <br />
 From the Apple Tree is a full-stack CRUD application aimed at the non-tech-savvy Apple user on the hunt for a new computer. With an account, a user can peruse Apple’s product lineup through a simple table view, or recommend devices through a questionnaire. Users also have the ability to compare two devices, and ‘favorite’ ones that they are interested in to view or compare later on. This app helps the user navigate the confusing world of buying a computer and can help save them big in the long run.
 
 ## Prerequisites
