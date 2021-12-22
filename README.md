@@ -11,7 +11,7 @@ From the Apple Tree is a full-stack CRUD application aimed at the non-tech-savvy
 - [PostrgeSQL](https://www.postgresql.org/)
 
 ## Usage
-1. (In progress) Go to [from_the_apple_tree.herokuapp.com] (http://from_the_apple_tree.herokuapp.com), or navigate to the "Setup" portion of the Readme and follow instructions laid out there.
+1. (In progress) Go to [from_the_apple_tree.herokuapp.com](http://from_the_apple_tree.herokuapp.com), or navigate to the "Setup" portion of the Readme and follow instructions laid out there.
 2. Either log in to a preexisting or create an account by clicking "Register".
 3. Navigate to the "Browse" tab in the top navigation bar to view products and compare. 
 4. "Favorite" a device by clicking the heart icon, and view all favorited devices on the landing page, or click the "Home" button on the top navigation bar.
