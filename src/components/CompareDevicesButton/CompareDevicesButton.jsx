@@ -1,6 +1,8 @@
+// MUI IMPORTS
 import { Button } from "@mui/material";
-import { useSelector } from "react-redux";
+
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 function CompareDevicesButton() {
   const history = useHistory();

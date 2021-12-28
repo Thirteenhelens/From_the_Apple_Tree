@@ -1,10 +1,11 @@
 import React from "react";
 import "./ChooseProductPage.css";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import { useSelector } from "react-redux";
 import ProductCardWithDesc from "../ProductCardWithcDesc/ProductCardWithDesc";
 import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
+
+// MUI IMPORTS
+import { Box, Grid } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function ChooseProductPage() {
   const products = useSelector((store) => store.products);

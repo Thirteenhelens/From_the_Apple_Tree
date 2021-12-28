@@ -1,12 +1,12 @@
 import "./UserPage.css";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
-import { Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCardNoDesc from "../ProductCardNoDesc/ProductCardNoDesc";
 import CompareDevicesButton from "../CompareDevicesButton/CompareDevicesButton";
+
+// MUI IMPORTS
+import { Box, Grid, Typography } from "@mui/material";
 
 function UserPage() {
   useEffect(() => {
@@ -18,9 +18,7 @@ function UserPage() {
   const favorites = useSelector((store) => store.favorites);
 
   return (
-    <div 
-    // className="userPageBody"
-    >
+    <div>
       <div>
         <h1 className="welcomeText"> Welcome, {user.username}!</h1>
       </div>

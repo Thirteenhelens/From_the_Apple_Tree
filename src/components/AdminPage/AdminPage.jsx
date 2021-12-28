@@ -1,20 +1,24 @@
 import "./AdminPage.css";
 import { useEffect } from "react";
-import { Box } from "@mui/system";
-import { Button } from "@mui/material";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
 import { useHistory } from "react-router";
-import { styled } from "@mui/material/styles";
-import TableRow from "@mui/material/TableRow";
-import TableBody from "@mui/material/TableBody";
-import TableHead from "@mui/material/TableHead";
-import EditIcon from "@mui/icons-material/Edit";
-import IconButton from "@mui/material/IconButton";
 import { useDispatch, useSelector } from "react-redux";
-import TableContainer from "@mui/material/TableContainer";
 import AdminDeleteBttn from "../AdminDeleteBttn/AdminDeleteBttn";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+// MUI IMPORTS
+import {
+  Box,
+  Paper,
+  Table,
+  Button,
+  styled,
+  TableRow,
+  TableBody,
+  TableCell,
+  TableHead,
+  IconButton,
+  TableContainer,
+  tableCellClasses,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
 
 function AdminPage() {
   const history = useHistory();

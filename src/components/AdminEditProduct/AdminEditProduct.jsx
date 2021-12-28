@@ -1,12 +1,15 @@
-import { Box } from "@mui/system";
-import Grid from "@mui/material/Grid";
-import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import Switch from "@mui/material/Switch";
+// MUI IMPORTS
+import {
+  Box,
+  Grid,
+  Switch,
+  Button,
+  TextField,
+  FormControlLabel,
+} from "@mui/material";
+
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import { useDispatch, useSelector } from "react-redux";
 
 function AdminEditProduct() {
   const history = useHistory();

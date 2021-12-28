@@ -1,26 +1,30 @@
 import * as React from "react";
 import { useState } from "react";
-import Card from "@mui/material/Card";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
 import { useDispatch } from "react-redux";
-import TableRow from "@mui/material/TableRow";
-import { styled } from "@mui/material/styles";
-import Collapse from "@mui/material/Collapse";
-import Checkbox from "@mui/material/Checkbox";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import TableContainer from "@mui/material/TableContainer";
+import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
+
+// MUI IMPORTS
+import {
+  Card,
+  Paper,
+  Table,
+  styled,
+  TableRow,
+  Collapse,
+  Checkbox,
+  TableBody,
+  TableCell,
+  CardMedia,
+  IconButton,
+  Typography,
+  CardHeader,
+  CardContent,
+  CardActions,
+  TableContainer,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
-import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function ProductCardWithDesc({ product }) {
   const dispatch = useDispatch();

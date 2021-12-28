@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 // MUI IMPORTS
 import TextField from "@mui/material/TextField";
 
 function LoginForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const errors = useSelector(store => store.errors);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   const login = (event) => {
@@ -16,14 +15,14 @@ function LoginForm() {
 
     if (username && password) {
       dispatch({
-        type: 'LOGIN',
+        type: "LOGIN",
         payload: {
           username: username,
           password: password,
         },
       });
     } else {
-      dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      dispatch({ type: "LOGIN_INPUT_ERROR" });
     }
   }; // end login
 
@@ -48,7 +47,6 @@ function LoginForm() {
       </div>
       <div>
         <label htmlFor="password">
-
           <TextField
             required
             type="password"

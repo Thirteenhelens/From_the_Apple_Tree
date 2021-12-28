@@ -1,13 +1,18 @@
-import { useState } from "react";
-import Card from "@mui/material/Card";
-import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+// MUI IMPORTS
+import {
+  Card,
+  Button,
+  CardMedia,
+  Typography,
+  CardHeader,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
+
+
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
 
 function CompareProductCard({ product }) {

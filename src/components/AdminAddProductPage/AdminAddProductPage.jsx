@@ -1,13 +1,17 @@
+// MUI IMPORTS
+import {
+  Box,
+  Grid,
+  Switch,
+  Button,
+  TextField,
+  FormControlLabel,
+} from "@mui/material";
+
 import { useState } from "react";
-import { Box } from "@mui/system";
 import "./AdminAddProductPage.css";
-import Grid from "@mui/material/Grid";
-import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import Switch from "@mui/material/Switch";
 import { useHistory } from "react-router";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import { useDispatch } from "react-redux";
 
 function AdminAddProductPage() {
   const history = useHistory();
@@ -82,7 +86,7 @@ function AdminAddProductPage() {
           </Grid>
 
           <Grid item xs={4} />
-          
+
           <Grid item xs={4}>
             <h3>Price</h3>
             <TextField

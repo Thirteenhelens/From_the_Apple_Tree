@@ -1,13 +1,17 @@
 import { useState } from "react";
-import Card from "@mui/material/Card";
 import { useDispatch } from "react-redux";
-import Checkbox from "@mui/material/Checkbox";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 import FavoriteProductButton from "../FavoriteProductButton/FavoriteProductButton";
+
+// MUI IMPORTS
+import {
+  Card,
+  Checkbox,
+  CardMedia,
+  Typography,
+  CardHeader,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 
 function ProductCardNoDesc({ product }) {
   const dispatch = useDispatch();

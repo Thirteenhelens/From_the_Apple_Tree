@@ -1,20 +1,24 @@
-import "./CompareProductsPage.css";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Table from "@mui/material/Table";
-import Paper from "@mui/material/Paper";
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { useHistory } from "react-router";
-import { Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableBody from "@mui/material/TableBody";
-import { useDispatch, useSelector } from "react-redux";
-import TableContainer from "@mui/material/TableContainer";
+// MUI IMPORTS
+import {
+  Box,
+  Grid,
+  Table,
+  Paper,
+  Button,
+  styled,
+  TableRow,
+  TableCell,
+  TableBody,
+  Typography,
+  TableContainer,
+} from "@mui/material";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
+
+import "./CompareProductsPage.css";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import CompareProductCard from "../CompareProductCard/CompareProductCard";
 
 function CompareProductsPage() {
@@ -80,7 +84,7 @@ function CompareProductsPage() {
               Back
             </Button>
           </div>
-          
+
           <br />
 
           <TableContainer component={Paper} elevation={5}>

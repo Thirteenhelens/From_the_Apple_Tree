@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // MUI IMPORTS
-import TextField from "@mui/material/TextField";
+import { TextField } from "@mui/material";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
