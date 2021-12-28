@@ -55,7 +55,7 @@ function AdminAddProductPage() {
       usbc_txt: "4",
       hdmi: true,
       hdmi_txt: "HDMI 2.0",
-      cpu_txt: "M1 Pro Max",
+      cpu_txt: "Apple M1 Pro Max",
       Description:
         `Apple's newest and best in class laptop. One of the best portable devices for anything
         involving graphical design, video editing, and anything computing intensive.`,
